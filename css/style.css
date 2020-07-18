@@ -1690,11 +1690,6 @@ html.with-panel .framework7-root > .view .tab {
     color: #fff !important;
 }
 
-/*news single*/
-.news-single{
-    margin-left: 300px;
-    margin-right: 300px;
-}
 
 /* For Mobile */
 @media screen and (max-width: 540px) {
