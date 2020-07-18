@@ -1,1 +1,1 @@
-<?php echo''; ?>
+<?php include 'index.html'; ?>
