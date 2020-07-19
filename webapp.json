@@ -14,37 +14,6 @@
           }
         }
       },
-      "templates": {
-        "body": {
-          "sections": [
-            {
-              "items": {
-                "{{#each $jason.find('tr.ritem')}}": {
-                  "type": "vertical",
-                  "components": [
-                    {
-                      "type": "label",
-                      "text": "{{$(this).find('td > a').text()}}"
-                    },
-                    {
-                      "type": "label",
-                      "text": "{{$(this).find('cite').text()}}"
-                    },
-                    {
-                      "type": "label",
-                      "text": "{{$(this).find('td').first().text() + '  ' + $(this).closest('table').prev().text()}}"
-                    }
-                  ],
-                  "href": {
-                    "view": "web",
-                    "url": "{{$(this).find('td > a').attr('href')}}"
-                  }
-                }
-              }
-            }
-          ]
-        }
-      }
     }
   }
 }
