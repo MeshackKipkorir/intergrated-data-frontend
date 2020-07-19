@@ -4,7 +4,7 @@
       "actions": {
         "type": "$network.request",
         "options": {
-          "url": "https://mygov.nanodigital.co.ke/",
+          "url": "https://mygov.nanodigital.co.ke/index",
           "data_type": "html"
         },
         "success": {
