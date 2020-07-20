@@ -805,8 +805,9 @@ html.with-panel .framework7-root > .view .tab {
 
 .location-item {
     font-size: 10px;
+    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis !important;
 }
 
 .location-item ion-icon {
