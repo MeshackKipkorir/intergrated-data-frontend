@@ -1,0 +1,222 @@
+<template>
+	<div class="page">
+	<div class="navbar navbar-transparent">
+		<div class="navbar-bg"></div>
+		<div class="navbar-inner sliding">
+			<div class="left">
+				<a class="link back">
+					<i class="icon icon-back"></i>
+				</a>
+			</div>
+			<div class="title">Job Details</div>
+		</div>
+	</div>
+	<div class="page-content ">
+		<div class="news-single">
+		<!-- ads details -->
+
+		<!-- separator -->
+		<div class="separator-small"></div>
+		<!-- end separator -->
+
+		<div class="image-preview">
+			<div class="container">
+				<div data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" class="swiper-container swiper-init">
+					<div class="swiper-pagination"></div>
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img src="images/jobs/tourism.jpeg" alt="demo-image"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- separator -->
+		<div class="separator-medium"></div>
+		<!-- end separator -->
+
+		<div class="detail-title">
+			<div class="container">
+				<div class="tag-category">
+					<span>{{job.department}}</span>
+				</div>
+				<p class="price-item">{{job.job_group}}</p>
+
+				<!-- separator -->
+				<div class="separator-small"></div>
+				<!-- end separator -->
+
+				<p class="title-item title-item-large">{{job.ministry}}</p>
+				<!-- separator -->
+
+				<div class="separator-small"></div>
+				<!-- end separator -->
+
+				<div class="short-info">
+					<p class="text-small">Closing Date : <span>{{job.closing_date}}</span></p>
+					<p class="text-small">Viewed : <span>560</span></p>
+				</div>
+
+				<!-- separator -->
+				<div class="separator-small"></div>
+				<!-- end separator -->
+
+				<div class="item-detail-action">
+					<ul>
+						<li><a href="#"><ion-icon name="heart-outline"></ion-icon></a></li>
+						<li><a href="#"><ion-icon name="warning-outline"></ion-icon></a></li>
+						<li><a href="#"><ion-icon name="share-social-outline"></ion-icon></a></li>
+					</ul>
+				</div>
+
+				<!-- divider -->
+				<div class="divider-h"></div>
+				<!-- end divider -->
+
+			</div>
+		</div>
+
+		<div class="item-description">
+			<div class="block-title title-small no-margin-top">
+				<h3>Job Title</h3>
+			</div>
+			<div class="container">
+				 <p>{{job.post}}</p>
+			</div>
+		</div>
+
+		<div class="item-details">
+			<div class="block-title title-small">
+				<h3>Details</h3>
+			</div>
+			<div class="container">
+				<ul>
+					<li>Advert No <span>{{job.advert_no}}</span></li>
+					<li>Department <span>{{job.department}}</span></li>
+					<li>Job Group <span>{{job.job_group}}</span></li>
+					<li>Vacancies <span>{{job.vacancies}}</span></li>
+					<li>Application Deadline <span>{{job.closing_date}}</span></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- separator -->
+		<div class="separator-medium"></div>
+		<!-- end separator -->
+
+		<!-- <div class="location-map">
+			<div class="container">
+				<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3060965204!2d-74.25987695601818!3d40.69714939158755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sKota+New+York%2C+New+York%2C+Amerika+Serikat!5e0!3m2!1sid!2sid!4v1520664948501"></iframe>
+			</div>
+		</div> -->
+
+		<div class="block-title">
+			<h3>Entity Information</h3>
+		</div>
+		<div class="seller-info">
+			<div class="container">
+				<div class="content">
+					<img src="images/avatar6.jpg" alt="">
+					<div class="title-name">
+						<h5 class="color-white">{{job.department}}</h5>
+						<!-- <p class="text-small"><span></span>online</p> -->
+						<button class="button button-small button-with-auto"><a href="/job-details/">View More Jobs</a></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="block-title block-title-center">
+			<h3>Contact</h3>
+		</div>
+		<div class="contact-seller profile-media">
+			<div class="container">
+				<ul>
+					<!-- contact information on jobs -->
+				</ul>
+			</div>
+		</div>
+
+		<div class="block-title">
+			<h3>Related Jobs</h3>
+		</div>
+		<div class="related-ads">
+			<div class="container">
+				<div class="row">
+					<div class="col-50">
+						<div class="content-item radius-default bg-white">
+							<a href="/ads-details/">
+								<div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+							</a>
+							<a href="">
+								<img class="full-width radius-top-only" src="images/jobs/petroleum.jpeg" alt="" height="100px" width="100px">
+								<div class="text-desc">
+									<p class="title-item">Chief Superitendant Officer</p>
+									<p class="price-item">September 9, 2020</p>
+									<p class="location-item"><ion-icon name="map-outline"></ion-icon>petroleum Energy</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-50">
+						<div class="content-item radius-default bg-white">
+							<a href="/ads-details/">
+								<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+							</a>
+							<a href="">
+								<img class="full-width radius-top-only" src="images/jobs/tourism.jpeg" alt="" height="100px" width="100px">
+								<div class="text-desc">
+									<p class="title-item">Secretary of Staff</p>
+									<p class="price-item">September 23,2020</p>
+									<p class="location-item"><ion-icon name="map-outline"></ion-icon>Ministry Of Tourism</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-50">
+						<div class="content-item radius-default bg-white">
+							<a href="/ads-details/">
+								<div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+							</a>
+							<a href="">
+								<img class="full-width radius-top-only" src="images/jobs/tourism.jpeg" alt="">
+								<div class="text-desc">
+									<p class="title-item">Director - National Cohesion</p>
+									<p class="price-item">September 21, 2020</p>
+									<p class="location-item"><ion-icon name="map-outline"></ion-icon>DEPARTMENT OF COORDINATION</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-50">
+						<div class="content-item radius-default bg-white">
+							<a href="/ads-details/">
+								<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+							</a>
+							<a href="">
+								<img class="full-width radius-top-only" src="images/tenders/KEMSA.png" alt="" height="100" width="100">
+								<div class="text-desc">
+									<p class="title-item">Bio-Chemical Engineer</p>
+									<p class="price-item">October 8,2020</p>
+									<p class="location-item"><ion-icon name="map-outline"></ion-icon>Ministry of Health</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- separator -->
+		<div class="separator-large"></div>
+		<!-- end separator -->
+
+		<!-- end ads details -->
+	</div>
+</div>
+</div>
+</template>
+
+

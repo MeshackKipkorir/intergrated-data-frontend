@@ -1,175 +1,268 @@
 "use strict";
-var routes = [
-  {
-    path: '/',
-    Url: './index.html',
-  },
+var routes = [{
+        path: '/',
+        componentUrl: './index.html',
+    },
 
-  {
-    path: '/ads/',
-    url: './ads.html',
-  },
+    {
+        path: '/ads/',
+        url: './ads.html',
+    },
 
-  {
-    path: '/ads-details/',
-    url: './ads-details.html',
-  },
+    {
+        path: '/ads-details/',
+        url: './ads-details.html',
+    },
 
-  {
-    path: '/add-ads/',
-    url: './add-ads.html',
-  },
+    {
+        path: '/single-tender/:id/:image_url',
+        async: function (routeTo, routeFrom, resolve, reject) {
+          // Requested route
+          console.log(routeTo);
+          var tender_id = routeTo.params.id;
+          var image_url = routeTo.params.image_url;
+          // Get external data and return template7 template
+          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleTender/${tender_id}`, function (data) {
+              console.log(data)
+              console.log(routeTo.params.id);
+            resolve(
+              // How and what to load: template
+              {
+                componentUrl: './single-tender.html'
+              },
+              // Custom template context
+              {
+                context: {
+                  tender: data,
+                  image:image_url
+                },
+              }
+            );
+          });
+        }
+      },
 
-  {
-    path: '/add-ads-product-details/',
-    url: './add-ads-product-details.html',
-  },
+      {
+        path: '/single-job/:id/:image_url',
+        async: function (routeTo, routeFrom, resolve, reject) {
+          // Requested route
+          console.log(routeTo);
+          console.log(routeTo)
+          var job_id = routeTo.params.id;
+          // Get external data and return template7 template
+          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleJob/${job_id}`, function (data) {
+              console.log(data)
+            resolve(
+              // How and what to load: template
+              {
+                componentUrl: './single-job.html'
+              },
+              // Custom template context
+              {
+                context: {
+                  job: data,
+                },
+              }
+            );
+          });
+        }
+      },
 
-  {
-    path: '/my-ads/',
-    url: './my-ads.html',
-  },
+      {
+        path: '/news-single/:id',
+        async: function (routeTo, routeFrom, resolve, reject) {
+          // Requested route
+          console.log(routeTo);
+          var county_id = routeTo.params.id;
+          // Get external data and return template7 template
+          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleCounty/${county_id}`, function (data) {
+              console.log(data)
+            resolve(
+              // How and what to load: template
+              {
+                componentUrl: './counties-single.html'
+              },
+              // Custom template context
+              {
+                context: {
+                  article: data,
+                },
+              }
+            );
+          });
+        }
+      },
 
-  {
-    path: '/favorites/',
-    url: './favorites.html',
-  },
+    {
+        path: '/add-ads/',
+        url: './add-ads.html',
+    },
 
-  {
-    path: '/search/',
-    url: './search.html',
-  },
+    {
+        path: '/add-ads-product-details/',
+        url: './add-ads-product-details.html',
+    },
 
-  {
-    path: '/profile/',
-    url: './profile.html',
-  },
+    {
+        path: '/my-ads/',
+        url: './my-ads.html',
+    },
 
-  {
-    path: '/categories/',
-    url: './categories.html',
-  },
-  
-  //services routes
-  {
-    path: '/category-details/',
-    url: './category-details.html',
-  },
+    {
+        path: '/favorites/',
+        url: './favorites.html',
+    },
+    {
+      path:'/job-categories/',
+      url:'./job-categories.html'
+    },
 
-  {
-    path: '/job-details/',
-    url: './jobs-details.html',
-  },
+    {
+      path:'/tender-categories/',
+      url:'./tender-categories.html'
+    },
 
-  {
-    path: '/news-details/',
-    url: './news-details.html',
-  },
+    {
+      path:'/ministry-categories',
+      url:'./ministry-category.html'
+    },
 
-  {
-    path: '/counties-details/',
-    url: './counties-details.html',
-  },
+    {
+        path: '/search/',
+        url: './search.html',
+    },
 
-  {
-    path:'/ministries-details/',
-    url: './ministries-details.html',
-  },
+    {
+        path: '/profile/',
+        url: './profile.html',
+    },
 
-  {
-    path: '/big4agenda-details/',
-    url: './big4agenda-details.html',
-  },
+    {
+        path: '/categories/',
+        url: './categories.html',
+    },
 
-  {
-    path: '/presidency-details/',
-    url: './presidency-details.html',
-  },
+    //services routes
+    {
+        path: '/category-details/',
+        componentUrl: './category-details.html',
+    },
 
-  {
-    path: '/ict-details/',
-    url: './ict-details.html',
-  },
+    {
+        path: '/job-details/',
+        componentUrl: './jobs-details.html',
+    },
+     
 
-  {
-    path: '/sports-details/',
-    url: './sports-details.html',
-  },
+    {
+        path: '/news-details/',
+        componentUrl: './news-details.html',
+    },
 
-  {
-    path: '/notices/',
-    url: './notices.html',
-  },
-  
-  //mygov news
-  {
-    path: '/mygov-english/',
-    url: './mygov-news.html',
-  },
-  
-  //notices documents pdf
+    {
+      path:'/counties-details',
+      componentUrl:'./counties-details.html',
+    },
 
-  {
-    path: '/notice1/',
-    url: './images/notices/documents/pdf1.pdf',
-  },
+    {
+        path: '/ministries-details/',
+        componentUrl: './ministries-details.html',
+    },
 
-  //end of notices documents
+    {
+        path: '/big4agenda-details/',
+        componentUrl:'./big4agenda-details.html',
+    },
 
-  //news-single
-  {
-    path: '/news-single/',
-    url: './news-single.html',
-  },
+    {
+        path: '/presidency-details/',
+        url: './presidency-details.html',
+    },
 
-  {
-    path: '/chat/',
-    url: './chat.html',
-  },
+    {
+        path: '/ict-details/',
+        url: './ict-details.html',
+    },
 
-  {
-    path: '/notifications/',
-    url: './notifications.html',
-  },
+    {
+        path: '/sports-details/',
+        url: './sports-details.html',
+    },
 
-  {
-    path: '/settings/',
-    url: './settings.html',
-  },
+    {
+        path: '/notices/',
+        componentUrl: './notices.html',
+    },
 
-  {
-    path: '/blog/',
-    url: './blog.html',
-  },
+    //mygov news
+    {
+        path: '/mygov-english/',
+        url: './mygov-news.html',
+    },
 
-  {
-    path: '/blog-details/',
-    url: './blog-details.html',
-  },
+    //notices documents pdf
 
-  {
-    path: '/sign-in/',
-    url: './sign-in.html',
-  },
+    {
+        path: '/notice1/',
+        url: './images/notices/documents/pdf1.pdf',
+    },
 
-  {
-    path: '/sign-up/',
-    url: './sign-up.html',
-  },
+    //end of notices documents
 
-  {
-    path: '/contact/',
-    url: './contact.html',
-  },
+    //news-single
+    {
+      path:'/single-article/',
+      url:'./news-single.html'
+    },
+    
+    {
+        path: '/chat/',
+        url: './chat.html',
+    },
 
-  {
-    path: '/pages/',
-    url: './pages.html',
-  },
+    {
+        path: '/notifications/',
+        url: './notifications.html',
+    },
 
-  {
-    path: '/blank-page/',
-    url: './blank-page.html',
-  },
+    {
+        path: '/settings/',
+        url: './settings.html',
+    },
+
+    {
+        path: '/blog/',
+        url: './blog.html',
+    },
+
+    {
+        path: '/blog-details/',
+        url: './blog-details.html',
+    },
+
+    {
+        path: '/sign-in/',
+        componentUrl: './sign-in.html',
+    },
+
+    {
+        path: '/sign-up/',
+        url: './sign-up.html',
+    },
+
+    {
+        path: '/contact/',
+        url: './contact.html',
+    },
+
+    {
+        path: '/pages/',
+        url: './pages.html',
+    },
+
+    {
+        path: '/blank-page/',
+        url: './blank-page.html',
+    },
 
 ];

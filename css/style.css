@@ -466,6 +466,8 @@ img {
 /* active state custom */
 .ios .link.active-state {
     opacity: 1;
+    color: blue;
+    transform: scale(1.5);
 }
 
 .button.active-state {
