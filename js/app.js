@@ -27,6 +27,7 @@ var mainView = app.views.create('.view-main', {
      
 });
 
+
 var countiesJson = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/counties', function(data) {
     return data
 });

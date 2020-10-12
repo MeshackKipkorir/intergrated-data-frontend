@@ -34,21 +34,23 @@
 						<li class="item-content item-input">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input type="email" placeholder="Email">
+									<input type="email" placeholder="Email" id="email">
 								</div>
 							</div>
 						</li>
 						<li class="item-content item-input">
 							<div class="item-inner">
 								<div class="item-input-wrap">
-									<input type="password" placeholder="Password">
+									<input type="password" placeholder="Password" id="password">
 								</div>
 							</div>
 						</li>
 					</ul>
 					<div class="button-default">
 						<div class="container">
-							<button class="button" id="submit-login">Sign In</button>
+							<a href="/login/">
+							<button class="button" id="submit-login" @click="signIn">Sign In</button>
+							</a>
 						</div>
 					</div>
 				</form>
@@ -59,6 +61,10 @@
 
 				<div class="link-forgot text-center text-small">
 					<a href="#" class="color-accent">Forgot Password?</a>
+				</div>
+
+				<div class="link-forgot text-center text-small">
+					<a href="/sign-up/" class="color-accent">Sign Up?</a>
 				</div>
 
 			</div>
@@ -73,5 +79,42 @@
 </div>
 </template>
 <script>
-	console.log('sign in page');
+	return {
+  methods: {
+    signIn: function () {
+		
+     event.preventDefault();			
+      var $ = this.$;
+      var app = this.$app;
+      var email = $('input#email').val();
+      var password = $('input#password').val();
+	  console.log(email + " " + password);
+	  if(!email || !password){
+		  alert('input both fields');
+	  }
+      app.request.post('http://localhost:8000/api/auth/login?email='+email+'&password='+password, function (data,response) {
+		console.log(response);
+
+		var obj = data;
+        // console.log(obj);
+        // console.log(obj.success);
+
+        if (response == 200) {
+		  console.log('you are logged in ')
+		  app.views.main.router.navigate('/job-details/');
+		  sessionStorage.setItem('user',email);
+		  console.log(sessionStorage.getItem('user'));
+          app.data.IsLogin=true;
+          app.data.UserName=email;
+		  //app.dialog.alert('logged in ' , function () {});
+          //app.views.main.router.navigate('/sign-up');       
+        } else {
+			app.dialog.alert(obj.Message , function () {});
+
+        }
+      });
+    }
+  }
+}
 </script>
+

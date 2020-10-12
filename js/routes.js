@@ -1,6 +1,6 @@
 "use strict";
 var routes = [{
-        path: '/',
+        path: '/index/',
         componentUrl: './index.html',
     },
 
@@ -247,7 +247,7 @@ var routes = [{
 
     {
         path: '/sign-up/',
-        url: './sign-up.html',
+        componentUrl: './sign-up.html',
     },
 
     {

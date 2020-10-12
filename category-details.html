@@ -324,6 +324,7 @@
 </template>
 <script>
 // script must return component object
+console.log('logged in as '+sessionStorage.getItem('user'));
 return {
     data: function() {
         console.log(JSON.parse(featuredTender.response));
