@@ -182,7 +182,7 @@
                     <div class="col-50">
                         <div class="content-item radius-default bg-white">
                             <a href="" data-transition="f7-dive">
-                                <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                <div class="favorite-symbol" @click="addFavourite"><ion-icon name="heart-outline"></ion-icon></div>
                             </a>
                             <a href="/single-job/2/tvet.png">
                                 <img class="full-width radius-top-only" src="images/jobs/TVETA.png" alt="" height="100" width="100">
@@ -327,6 +327,26 @@
 // script must return component object
 console.log('logged in as '+sessionStorage.getItem('user'));
 return {
+    methods: {
+    addFavourite: function () {
+	console.log('clocked');
+      var userEmail = sessionStorage.getItem('user');
+      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title=Assistant Director , Vocational Education and Training', function (data,response) {
+		console.log(response);
+
+		var obj = data;
+        // console.log(obj);
+        // console.log(obj.success);
+
+        if (response == 200) {
+		  console.log('fav added successfully');     
+        } else {
+			app.dialog.alert(obj.Message , function () {});
+
+        }
+      });
+    }
+  },
     data: function() {
         console.log(JSON.parse(jobsJson.response));
         return {

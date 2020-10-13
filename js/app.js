@@ -50,3 +50,4 @@ var tendersJson = app.request.get('https://demos.mediapal.net/mygov-scraper/scra
 var featuredTender = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/featured/6ß',function(data){
     return data
 });
+

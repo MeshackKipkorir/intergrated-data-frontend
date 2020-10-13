@@ -220,11 +220,28 @@ var routes = [{
         url: './chat.html',
     },
 
-    {
-        path: '/notifications/',
-        url: './notifications.html',
-    },
-
+      {
+    path: '/notifications/',
+    async: function (routeTo, routeFrom, resolve, reject) {
+      // Requested route
+      console.log(routeTo);
+      // Get external data and return template7 template
+      this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+        resolve(
+          // How and what to load: template
+          {
+            componentUrl: './notifications.html'
+          },
+          // Custom template context
+          {
+            context: {
+              notifications: data,
+            },
+          }
+        );
+      });
+    }
+  },
     {
         path: '/settings/',
         url: './settings.html',
