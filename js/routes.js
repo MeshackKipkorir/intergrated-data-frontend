@@ -22,7 +22,7 @@ var routes = [{
           var tender_id = routeTo.params.id;
           var image_url = routeTo.params.image_url;
           // Get external data and return template7 template
-          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleTender/${tender_id}`, function (data) {
+          this.app.request.json(`http://127.0.0.1:8000/api/singleTender/${tender_id}`, function (data) {
               console.log(data)
               console.log(routeTo.params.id);
             resolve(
@@ -41,6 +41,60 @@ var routes = [{
           });
         }
       },
+
+// jobs filter
+    {
+      path: '/filtered-jobs/:filter/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        var filter = routeTo.params.filter;
+        // Get external data and return template7 template
+        this.app.request.json(`http://127.0.0.1:8000/api/filterJobs/${filter}`, function (data) {
+            console.log(data)
+          resolve(
+            // How and what to load: template
+            {
+              componentUrl: './filtered-jobs.html'
+            },
+            // Custom template context
+            {
+              context: {
+                data: data,
+              },
+            }
+          );
+        });
+      }
+    },
+
+    //filter tenders
+
+    {
+      path: '/filtered-tenders/:filter/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        var filter = routeTo.params.filter;
+        // Get external data and return template7 template
+        this.app.request.json(`http://127.0.0.1:8000/api/filterTenders/${filter}`, function (data) {
+            console.log(data)
+          resolve(
+            // How and what to load: template
+            {
+              componentUrl: './filtered-tenders.html'
+            },
+            // Custom template context
+            {
+              context: {
+                data: data,
+              },
+            }
+          );
+        });
+      }
+    },
+
 
       {
         path: '/single-job/:id/:image_url',
@@ -109,9 +163,27 @@ var routes = [{
     },
 
     {
-        path: '/favorites/',
-        url: './favorites.html',
-    },
+      path: '/favorites/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        // Get external data and return template7 template
+        this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+          resolve(
+            // How and what to load: template
+            {
+              componentUrl: './favorites.html'
+            },
+            // Custom template context
+            {
+              context: {
+                notifications: data,
+              },
+            }
+          );
+        });
+      }
+  },
     {
       path:'/job-categories/',
       url:'./job-categories.html'
@@ -221,26 +293,26 @@ var routes = [{
     },
 
       {
-    path: '/notifications/',
-    async: function (routeTo, routeFrom, resolve, reject) {
-      // Requested route
-      console.log(routeTo);
-      // Get external data and return template7 template
-      this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
-        resolve(
-          // How and what to load: template
-          {
-            componentUrl: './notifications.html'
-          },
-          // Custom template context
-          {
-            context: {
-              notifications: data,
+      path: '/notifications/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        // Get external data and return template7 template
+        this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+          resolve(
+            // How and what to load: template
+            {
+              componentUrl: './notifications.html'
             },
-          }
-        );
-      });
-    }
+            // Custom template context
+            {
+              context: {
+                notifications: data,
+              },
+            }
+          );
+        });
+      }
   },
     {
         path: '/settings/',

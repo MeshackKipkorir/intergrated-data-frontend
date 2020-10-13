@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="default">
-	<meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
-
-	<link rel="icon" href="images/favicon.png">
-
-	<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-	<title>MyGov</title>
-	<link rel="stylesheet" href="css/framework7.bundle.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-
-	<div class="page">
+<template>
+<div class="page">
 	<div class="navbar navbar-transparent">
 		<div class="navbar-bg"></div>
 		<div class="navbar-inner sliding">
@@ -32,7 +13,8 @@
 	</div>
 	<div class="page-content">
 		<!-- favorites -->
-
+		
+		{{#each notifications}}
 		<!-- separator -->
 		<div class="separator-small"></div>
 		<!-- end separator -->
@@ -47,7 +29,7 @@
 						<img class="radius-default" src="images/jobs/jobs.jpg" alt="">
 					</div>
 					<div class="boxed">
-						<p class="title-item">SENIOR ADMINISTRATIVE ASSISTANT</p>
+						<p class="title-item">{{this.title}}</p>
 						<p class="price-item">BUC/ADM/10/12/2019</p> 
 						<ul class="rating-item">
 							<li><ion-icon name="star-sharp"></ion-icon></li>
@@ -66,102 +48,8 @@
 		<div class="separator-medium"></div>
 		<!-- end separator -->
 
-		<div class="favorites">
-			<div class="container">
-				<div class="content-wrapper">
-					<a href="#">
-						<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
-					</a>
-					<div class="content-image">
-						<img class="radius-default" src="images/jobs/jobs.jpg" alt="">
-					</div>
-					<div class="boxed">
-						<p class="title-item">DIRECTOR,FILM INDUSTRY SUPPORT SERVICES</p>
-						<p class="price-item">KFC/HRA/DFISS/2020</p>
-						<ul class="rating-item">
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-outline"></ion-icon></li>
-						</ul>
-						<p class="location-item"><ion-icon name="map-outline"></ion-icon>KENYA FILMS COMMISION</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- separator -->
-		<div class="separator-medium"></div>
-		<!-- end separator -->
-
-		<div class="favorites">
-			<div class="container">
-				<div class="content-wrapper">
-					<a href="#">
-						<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
-					</a>
-					<div class="content-image">
-						<img class="radius-default" src="images/jobs/jobs.jpg" alt="">
-					</div>
-					<div class="boxed">
-						<p class="title-item">HEAD OF CORPORATE COMMNICATION</p>
-						<p class="price-item">KWS/59/2020</p>
-						<ul class="rating-item">
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-outline"></ion-icon></li>
-						</ul>
-						<p class="location-item"><ion-icon name="map-outline"></ion-icon>KENYA WILDLIFE SERVICE</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- separator -->
-		<div class="separator-medium"></div>
-		<!-- end separator -->
-
-		<div class="favorites">
-			<div class="container">
-				<div class="content-wrapper">
-					<a href="#">
-						<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
-					</a>
-					<div class="content-image">
-						<img class="radius-default" src="images/jobs/jobs.jpg" alt="">
-					</div>
-					<div class="boxed">
-						<p class="title-item">CERTIFIED PUBLIC ACCOUNTANT</p>
-						<p class="price-item">CPA/202/CAD</p>
-						<ul class="rating-item">
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-sharp"></ion-icon></li>
-							<li><ion-icon name="star-outline"></ion-icon></li>
-						</ul>
-						<p class="location-item"><ion-icon name="map-outline"></ion-icon>DEPARTMENT OF DEFENCE</p>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- separator -->
-		<div class="separator-large"></div>
-		<!-- end separator -->
-
+		{{/each}}
 		<!-- end favorites -->
 	</div>
 </div>
-
-	<!-- script -->
-	<script src="js/framework7.bundle.min.js"></script>
-	<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-	<script src="js/routes.js"></script>
-	<script src="js/app.js"></script>
-	<!-- end script -->
-</body>
-</html>
+</template>

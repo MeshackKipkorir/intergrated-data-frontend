@@ -6,6 +6,7 @@ var $ = Dom7;
 var app = new Framework7({
     root: '#app',
     theme: 'ios',
+    name:'Fursa',
     routes: routes,
     view: {
         pushState: false,

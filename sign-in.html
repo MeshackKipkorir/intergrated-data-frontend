@@ -20,7 +20,7 @@
 		<!-- sign in -->
 		<div class="sign-in">
 			<div class="content text-center">
-				<img class="image-illustration" src="images/contact-illustration.png" alt="">
+				<img class="image-illustration" src="images/logo.png" alt="">
 				<h3>Welcome Back!</h3>
 			</div>
 
@@ -109,8 +109,7 @@
 		  //app.dialog.alert('logged in ' , function () {});
           //app.views.main.router.navigate('/sign-up');       
         } else {
-			app.dialog.alert(obj.Message , function () {});
-
+			app.dialog.alert('invalid login', function () {});
         }
       });
     }

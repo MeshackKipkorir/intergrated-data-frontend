@@ -28,9 +28,21 @@
                         <li class="item-content item-input">
                             <div class="item-inner">
                                 <div class="item-input-wrap input-dropdown-wrap">
-                                    <select>
-                                        <option value="Relevance">Relevance</option>
-                                        <option value="Date">Date</option>
+                                    <select id="filter">
+                                        <option value="Relevance">Department</option>
+                                        <option value="Technical Education">Technical Education</option>
+                                        <option value="State Department of Livestock">State Department of Livestock</option>
+                                        <option value="Department of Defence">Department of Defence</option>
+                                        <option value="State Department for Devolution">State Department for Devolution</option>
+                                        <option value="State Department for ASALs">State Department for ASALs</option>
+                                        <option value="East African Community">East African Community</option>
+                                        <option value="State Department for Petroleum">State Department for Petroleum</option>
+                                        <option value="Foreign Services">Foreign Services</option>
+                                        <option value="State Department of Coordination of National Government">State Department of Coordination of National Government</option>
+                                        <option value="State Department of Tourism">State Department of Tourism</option>
+                                        <option value="State of Department of Wildlife">State of Department of Wildlife</option>
+                                        <option value="State Department of Infrastructure">State Department of Infrastructure</option>
+                                        <option value="State Department for Youth Affairs">State Department for Youth Affairs</option>
                                         <!-- <option value="Price">Price: Low to high</option>
 									<option value="Price">Price: High to low</option> -->
                                     </select>
@@ -39,7 +51,8 @@
                         </li>
                     </ul>
                 </form>
-                <div class="block-title title-small">
+                <!-- ratings -->
+                <!-- <div class="block-title title-small">
                     <h3>Ratings</h3>
                 </div>
                 <div class="rating-filter">
@@ -62,7 +75,7 @@
                                 </a></li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
                 <div class="block-title title-small">
                     <h3>Location</h3>
                 </div>
@@ -78,7 +91,7 @@
                         </li>
                     </ul>
                 </form>
-                <div class="block-title title-small">
+                <!-- <div class="block-title title-small">
                     <h3>Price Range</h3>
                 </div>
                 <div class="container">
@@ -110,7 +123,7 @@
                             </li>
                         </ul>
                     </form>
-                </div>
+                </div> -->
                 <!-- separator -->
                 <div class="separator-large"></div>
                 <!-- end separator -->
@@ -120,7 +133,7 @@
                         <!-- separator -->
                         <div class="separator-medium"></div>
                         <!-- end separator -->
-                        <button class="button">Apply Filters</button>
+                        <a data-transition="f7-dive" class="button item-link item-content panel-close"  href="/filtered-jobs/Department of Defence/">Apply Filters</a>
                     </div>
                 </div>
                 <!-- separator -->
@@ -151,13 +164,13 @@
             <!-- all categories -->
             <div class="categories">
                 <div class="container">
-                    <!--
+                   
                     <div class="row">
                         {{#each data.data}}
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol active-symbol">
+                                    <div class="favorite-symbol active-symbol" @click="addFavourite('{{this.post}}')">
                                         <ion-icon name="heart-outline"></ion-icon>
                                     </div>
                                 </a>
@@ -173,11 +186,12 @@
                                 </a>
                             </div>
                         </div>
+                        
                         {{/each}}
                     </div>
-                -->
+                
 
-
+<!--
                 <div class="row">
                     <div class="col-50">
                         <div class="content-item radius-default bg-white">
@@ -313,7 +327,7 @@
                         </div>
                     </div>
                 </div>
-
+            -->
                 </div>
             </div>
             <!-- end all categories -->
@@ -328,18 +342,21 @@
 console.log('logged in as '+sessionStorage.getItem('user'));
 return {
     methods: {
-    addFavourite: function () {
-	console.log('clocked');
+    addFavourite: function (title,job_id) {
       var userEmail = sessionStorage.getItem('user');
-      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title=Assistant Director , Vocational Education and Training', function (data,response) {
+      console.log(title);
+      console.log(job_id);
+      
+      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3', function (data,response) {
 		console.log(response);
 
-		var obj = data;
+		var obj = data; 
         // console.log(obj);
         // console.log(obj.success);
 
         if (response == 200) {
-		  console.log('fav added successfully');     
+          console.log('fav added successfully');
+          app.dialog.alert('Added to favourites' , function () {});     
         } else {
 			app.dialog.alert(obj.Message , function () {});
 
