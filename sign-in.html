@@ -64,7 +64,7 @@
 				</div>
 
 				<div class="link-forgot text-center text-small">
-					<a href="/sign-up/" class="color-accent">Sign Up?</a>
+					<a href="/sign-up/" data-ignore-cache="true" class="color-accent">Sign Up?</a>
 				</div>
 
 			</div>
@@ -79,41 +79,38 @@
 </div>
 </template>
 <script>
-	return {
-  methods: {
-    signIn: function () {
-		
-     event.preventDefault();			
-      var $ = this.$;
-      var app = this.$app;
-      var email = $('input#email').val();
-      var password = $('input#password').val();
-	  console.log(email + " " + password);
-	  if(!email || !password){
-		  alert('input both fields');
-	  }
-      app.request.post('http://localhost:8000/api/auth/login?email='+email+'&password='+password, function (data,response) {
-		console.log(response);
+	return{
+		methods:{
+			signIn: function(){
+				var email = $('input#email').val();
+				var password = $('input#password').val();
+				console.log(email,password);
 
-		var obj = data;
-        // console.log(obj);
-        // console.log(obj.success);
+				if(!email || !password){
+					app.dialog.alert('please fill in both fields');
+					return;
+				}
 
-        if (response == 200) {
-		  console.log('you are logged in ')
-		  app.views.main.router.navigate('/job-details/');
-		  sessionStorage.setItem('user',email);
-		  console.log(sessionStorage.getItem('user'));
-          app.data.IsLogin=true;
-          app.data.UserName=email;
-		  //app.dialog.alert('logged in ' , function () {});
-          //app.views.main.router.navigate('/sign-up');       
-        } else {
-			app.dialog.alert('invalid login', function () {});
-        }
-      });
-    }
-  }
-}
+	
+				app.preloader.show();
+			
+				app.request.promise.postJSON('http://127.0.0.1:8000/api/auth/login', { email:email, password: password })
+				.then(function (res) {
+					app.preloader.hide();
+					sessionStorage.setItem('user',email);
+					app.views.main.router.navigate('/index/');
+					console.log(res.data);
+				}).catch(error => {
+
+					app.preloader.hide();
+					app.dialog.alert('Incoreect Password or Email!')
+					console.error('Error: ', error);
+				});
+
+
+			}
+		}
+	}
 </script>
+
 

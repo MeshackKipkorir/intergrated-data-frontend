@@ -1,7 +1,7 @@
 "use strict";
 var routes = [{
         path: '/index/',
-        componentUrl: './index.html',
+        url:'./index.html'
     },
 
     {
@@ -297,7 +297,9 @@ var routes = [{
       async: function (routeTo, routeFrom, resolve, reject) {
         // Requested route
         console.log(routeTo);
+        console.log(sessionStorage.getItem('user') == null);
         // Get external data and return template7 template
+        if(sessionStorage.getItem('user') != null){
         this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
           resolve(
             // How and what to load: template
@@ -312,6 +314,11 @@ var routes = [{
             }
           );
         });
+      }
+      else{
+        app.dialog.alert('please login!');
+        app.views.main.router.navigate('/sign-in/');  
+      }
       }
   },
     {
@@ -352,6 +359,11 @@ var routes = [{
     {
         path: '/blank-page/',
         url: './blank-page.html',
+    },
+
+    {
+      path:'/register/',
+      url:'./register.html',
     },
 
 ];

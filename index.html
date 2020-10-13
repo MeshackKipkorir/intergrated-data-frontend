@@ -216,7 +216,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-33">
-                                        <a href="/tender-categories/" data-transition="f7-dive">
+                                        <a href="/category-details/" data-transition="f7-dive">
                                             <div class="content">
                                                 <!-- <ion-icon name="car-sport-outline" class="color-blue"></ion-icon> -->
                                                 <img src="images/tenders.png" height="39" class="center" />
@@ -225,7 +225,7 @@
                                         </a>
                                     </div>
                                     <div class="col-33">
-                                        <a href="/job-categories/" data-transition="f7-dive">
+                                        <a href="/job-details/" data-transition="f7-dive">
                                             <div class="content">
                                                 <!-- <ion-icon name="bicycle-outline" class="color-purple"></ion-icon> -->
                                                 <img src="images/jobs.png" height="39" class="center" />
@@ -913,116 +913,7 @@
                         </div>
                         <!-- end sheet modal for sort by -->
                         <!-- sidebar / panel for filter -->
-                        <div class="panel-backdrop"></div>
-                        <div class="panel panel-right sidebar-right panel-cover panel-init">
-                            <div class="block-title title-small">
-                                <h3>Sort by</h3>
-                            </div>
-                            <form class="list">
-                                <ul>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap input-dropdown-wrap">
-                                                <select>
-                                                    <option value="Service">Service</option>
-                                                    <option value="ministry">Ministry</option>
-                                                    <option value="Date">Date</option>
-                                                    <!-- <option value="Price">Price: Low to high</option>
-                                                    <option value="Price">Price: High to low</option> -->
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </form>
-                            <div class="block-title title-small">
-                                <h3>Application fee</h3>
-                            </div>
-                            <div class="rating-filter">
-                                <div class="container">
-                                    <ul>
-                                        <li class="rating-active"><a href="">
-                                                <ion-icon name="star-sharp"></ion-icon>5
-                                            </a></li>
-                                        <li><a href="">
-                                                <ion-icon name="star-sharp"></ion-icon> > 50000 /=
-                                            </a></li>
-                                        <li><a href="">
-                                                <ion-icon name="star-sharp"></ion-icon>10000-50000 /=
-                                            </a></li>
-                                        <li><a href="">
-                                                <ion-icon name="star-sharp"></ion-icon>1000-10000 /=
-                                            </a></li>
-                                        <li><a href="">
-                                                <ion-icon name="star-sharp"></ion-icon>100-1000 /=
-                                            </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="block-title title-small">
-                                <h3>Location</h3>
-                            </div>
-                            <form class="list">
-                                <ul>
-                                    <li class="item-content item-input">
-                                        <div class="item-inner">
-                                            <div class="item-input-wrap">
-                                                <input type="text" placeholder="Current location">
-                                                <span class="input-clear-button"></span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </form>
-                            <div class="block-title title-small">
-                                <h3>Price Range</h3>
-                            </div>
-                            <div class="container">
-                                <form class="list">
-                                    <ul>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-50">
-                                                    <div class="item-content item-input">
-                                                        <div class="item-inner">
-                                                            <div class="item-input-wrap">
-                                                                <input type="text" placeholder="Minimum">
-                                                                <span class="input-clear-button"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-50">
-                                                    <div class="item-content item-input">
-                                                        <div class="item-inner">
-                                                            <div class="item-input-wrap">
-                                                                <input type="text" placeholder="Maximum">
-                                                                <span class="input-clear-button"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </form>
-                            </div>
-                            <!-- separator -->
-                            <div class="separator-large"></div>
-                            <!-- end separator -->
-                            <div class="fitler-execution">
-                                <div class="container">
-                                    <button class="button secondary-button panel-close">Cancel</button>
-                                    <!-- separator -->
-                                    <div class="separator-medium"></div>
-                                    <!-- end separator -->
-                                    <button class="button">Apply Filters</button>
-                                </div>
-                            </div>
-                            <!-- separator -->
-                            <div class="separator-large"></div>
-                            <!-- end separator -->
-                        </div>
+                        
                         <!-- end sidebar / panel for filter -->
                         <div class="searchbar-backdrop"></div>
                         <div class="searchbar-found">
@@ -1238,6 +1129,7 @@
     </div>
     
     <!-- script -->
+    <script src="js/jquery-migrate-1.4.1.js"></script>
     <script src="js/framework7.bundle.js"></script>
     <script src="js/routes.js"></script>
     <script src="js/app.js"></script>

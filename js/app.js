@@ -8,6 +8,7 @@ var app = new Framework7({
     theme: 'ios',
     name:'Fursa',
     routes: routes,
+    cache:false,
     view: {
         pushState: false,
     },
@@ -25,7 +26,6 @@ app.sheet.create({
 
 var mainView = app.views.create('.view-main', {
     url: './index.html'
-     
 });
 
 

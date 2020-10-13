@@ -340,6 +340,7 @@
 <script>
 // script must return component object
 console.log('logged in as '+sessionStorage.getItem('user'));
+console.log(sessionStorage.getItem('user') == null);
 return {
     methods: {
     addFavourite: function (title,job_id) {
@@ -347,6 +348,7 @@ return {
       console.log(title);
       console.log(job_id);
       
+      if(sessionStorage.getItem('user') != null){
       app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3', function (data,response) {
 		console.log(response);
 
@@ -362,6 +364,12 @@ return {
 
         }
       });
+    }
+    else{
+        app.dialog.alert('please login!');
+        app.views.main.router.navigate('/sign-in/');
+
+    }
     }
   },
     data: function() {
