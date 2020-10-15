@@ -302,7 +302,7 @@ var routes = [{
         if(sessionStorage.getItem('user') != null){
         this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
           resolve(
-            // How and what to load: template
+            // How and what to load: 
             {
               componentUrl: './notifications.html'
             },
@@ -321,6 +321,38 @@ var routes = [{
       }
       }
   },
+  {
+    path: '/logout/',
+    async: function (routeTo, routeFrom, resolve, reject) {
+      // Requested route
+      console.log(routeTo);
+      console.log(sessionStorage.getItem('user') == null);
+      sessionStorage.setItem('user',null);
+      console.log('current situeshen '+sessionStorage.getItem('user'));
+
+      // Get external data and return template7 template
+      if(sessionStorage.getItem('user') != null){
+      this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+        resolve(
+          // How and what to load: 
+          {
+            componentUrl: './sign-in.html'
+          },
+          // Custom template context
+          {
+            context: {
+              notifications: data,
+            },
+          }
+        );
+      });
+    }
+    else{
+      app.dialog.alert('please login!');
+      app.views.main.router.navigate('/sign-in/');  
+    }
+    }
+},
     {
         path: '/settings/',
         url: './settings.html',

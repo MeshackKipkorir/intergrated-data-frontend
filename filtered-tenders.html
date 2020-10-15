@@ -188,10 +188,10 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('{{this.tender_title}}'"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
-                                <a href="/single-tender/{{this.id}}/IEBC.jpg">
-                                    <img class="full-width radius-top-only" src="images/tenders/IEBC.png" alt="" height="100" width="100">
+                                <a href="/single-tender/{{this.id}}/{{this.image}}">
+                                    <img class="full-width radius-top-only" src="images/{{this.image}}" alt="" height="100" width="100">
                                     <div class="text-desc">
                                         <p class="price-item">{{this.tender_title}}</p>
                                         <p class="location-item"><ion-icon name="map-outline"></ion-icon>{{this.posted_at}}</p>
@@ -214,6 +214,35 @@
 // script must return component object
 console.log('logged in as '+sessionStorage.getItem('user'));
 return {
+    methods: {
+    addFavourite: function (title,job_id) {
+      var userEmail = sessionStorage.getItem('user');
+      console.log(title);
+      console.log(job_id);
+      
+      if(sessionStorage.getItem('user') != null){
+      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3'+'&closing_date=29-10-2020', function (data,response) {
+		console.log(response);
+
+		var obj = data; 
+        // console.log(obj);
+        // console.log(obj.success);
+
+        if (response == 200) {
+          console.log('fav added successfully');
+          app.dialog.alert('Added to favourites' , function () {});     
+        } else {
+			app.dialog.alert(obj.Message , function () {});
+
+        }
+      });
+    }
+    else{
+        app.dialog.alert('please login!');
+        app.views.main.router.navigate('/sign-in/');
+    }
+    }
+  },
     data: function() {
     
     },

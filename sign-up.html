@@ -107,7 +107,7 @@ return{
 				console.log(res.data);
 			}).catch(error => {
 				app.preloader.hide();
-				app.dialog.alert('Sth went wrong, trying again!');
+				app.dialog.alert('Email address already exixts!');
 				console.error('Error :', error);
 			});
 
