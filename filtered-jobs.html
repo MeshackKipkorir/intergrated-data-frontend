@@ -133,7 +133,7 @@
                         <!-- separator -->
                         <div class="separator-medium"></div>
                         <!-- end separator -->
-                        <button class="button">Apply Filters</button>
+                        <button class="button" @click="applyFilter">Apply Filters</button>
                     </div>
                 </div>
                 <!-- separator -->
@@ -220,7 +220,13 @@
 
             }
         });
-        }
+        },
+        applyFilter: function(){
+        var filter = $('#filter').val();
+        console.log(filter);
+        app.views.main.router.navigate('/filtered-jobs/'+filter+'/');   
+
+    }
       }
     }
 </script>

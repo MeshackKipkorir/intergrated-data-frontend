@@ -28,15 +28,15 @@
                         <li class="item-content item-input">
                             <div class="item-inner">
                                 <div class="item-input-wrap input-dropdown-wrap">
-                                    <select>
-                                        <option value="Relevance">Entity</option>
-                                        <option value="Date">Commissions and Independent Offices</option>
-                                        <option value="Date">County</option>
-                                        <option value="Date">State Corporation</option>
-                                        <option value="Date">County Assemblies</option>
-                                        <option value="Date">Public Universities</option>
-                                        <option value="Date">Semi-Autonomous Government Agencies</option>
-                                        <option value="Date">Ministry</option>
+                                    <select id="filter">
+                                        <option value="">Entity</option>
+                                        <option value="Commissions and Independent Offices">Commissions and Independent Offices</option>
+                                        <option value="County">County</option>
+                                        <option value="State Corporation">State Corporation</option>
+                                        <option value="County Assemblies">County Assemblies</option>
+                                        <option value="Public Universities">Public Universities</option>
+                                        <option value="Semi-Autonomous Government Agencies">Semi-Autonomous Government Agencies</option>
+                                        <option value="Ministry">Ministry</option>
             
                                         <!-- <option value="Price">Price: Low to high</option>
 									<option value="Price">Price: High to low</option> -->
@@ -127,7 +127,7 @@
                         <!-- separator -->
                         <div class="separator-medium"></div>
                         <!-- end separator -->
-                        <a data-transition="f7-dive" class="button item-link item-content panel-close"  href="/filtered-tenders/County/">Apply Filters</a>
+                        <a data-transition="f7-dive" class="button item-link item-content panel-close"  @click="applyFilter">Apply Filters</a>
 
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol" @click="addFavourite('SUPPLY, INSTALLATION, CONFIGURATION OF ANTIVIRUS'"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('SUPPLY , INSTALLATION, CONFIGURATION OF ANTIVIRUS')"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/1/IEBC.jpg">
                                     <img class="full-width radius-top-only" src="images/tenders/IEBC.png" alt="" height="100" width="100">
@@ -356,7 +356,7 @@ return {
 
         if (response == 200) {
           console.log('fav added successfully');
-          app.dialog.alert('Added to Your Tenders' , function () {});     
+          app.dialog.alert('Added to Your Tenders' , function () {});  
         } else {
 			app.dialog.alert(obj.Message , function () {});
 
@@ -367,6 +367,12 @@ return {
         app.dialog.alert('please login!');
         app.views.main.router.navigate('/sign-in/');
     }
+    },
+    applyFilter:function(){
+        var filter = $('#filter').val();
+        console.log(filter);
+        app.views.main.router.navigate('/filtered-tenders/'+filter+'/');   
+
     }
   },
 
