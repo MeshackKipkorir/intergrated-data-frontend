@@ -127,7 +127,7 @@
                         <!-- separator -->
                         <div class="separator-medium"></div>
                         <!-- end separator -->
-                        <a data-transition="f7-dive" class="button item-link item-content panel-close"  href="/filtered-tenders/Public Universities/">Apply Filters</a>
+                        <a data-transition="f7-dive" class="button item-link item-content panel-close"  href="/filtered-tenders/County/">Apply Filters</a>
 
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('SUPPLY, INSTALLATION, CONFIGURATION OF ANTIVIRUS'"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/1/IEBC.jpg">
                                     <img class="full-width radius-top-only" src="images/tenders/IEBC.png" alt="" height="100" width="100">
@@ -204,7 +204,7 @@
                             <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('CONSTRUCTION OF NEW MAIN CANAL AND ASSOCIATED CIVIL WORKS')"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/25/NIB.png">
                                     <img class="full-width radius-top-only" src="images/tenders/NIB.png" alt="" height="100" width="100">
@@ -222,7 +222,7 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('PROVISION OF DEDICATED INTERNET SERVOCE OF 200MBPS FOR 3 YEARS')"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/26/kcaa.jpeg">
                                     <img class="full-width radius-top-only" src="images/tenders/KCAA.png" alt="" height="150" width="150">
@@ -238,7 +238,7 @@
                             <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('TENDER FOR DISPOSAL OF USED MOTOR VEHICLES')"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/29/gdc.png">
                                     <img class="full-width radius-top-only" src="images/tenders/gdc.png" alt="" height="150" width="150">
@@ -256,7 +256,7 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+                                    <div class="favorite-symbol" @click="addFavourite('SUPPLY OF MALARIA RAPID DIAGNOSTIC TESTS')"><ion-icon name="heart-outline"></ion-icon></div>
                                 </a>
                                 <a href="/single-tender/31/kemsa.png">
                                     <img class="full-width radius-top-only" src="images/tenders/KEMSA.png" alt="" height="150" width="150">
@@ -340,6 +340,35 @@ return {
             data: JSON.parse(featuredTender.response),
         }
     },
+    methods: {
+    addFavourite: function (title,job_id) {
+      var userEmail = sessionStorage.getItem('user');
+      console.log(title);
+      console.log(job_id);
+      
+      if(sessionStorage.getItem('user') != null){
+      app.request.post('http://localhost:8000/api/insertTenderNotification?email='+userEmail+'&title='+title+'&tender_id=3'+'&closing_date=29-10-2020', function (data,response) {
+		console.log(response);
+
+		var obj = data; 
+        // console.log(obj);
+        // console.log(obj.success);
+
+        if (response == 200) {
+          console.log('fav added successfully');
+          app.dialog.alert('Added to Your Tenders' , function () {});     
+        } else {
+			app.dialog.alert(obj.Message , function () {});
+
+        }
+      });
+    }
+    else{
+        app.dialog.alert('please login!');
+        app.views.main.router.navigate('/sign-in/');
+    }
+    }
+  },
 
     on: {
         pageInit: function(e, page) {

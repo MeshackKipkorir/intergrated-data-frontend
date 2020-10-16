@@ -1,0 +1,55 @@
+<template>
+	<div class="page">
+		<div class="navbar navbar-transparent">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner sliding">
+				<div class="left">
+					<a class="link back">
+						<i class="icon icon-back"></i>
+					</a>
+				</div>
+				<div class="title">Favorites</div>
+			</div>
+		</div>
+		<div class="page-content">
+			<!-- favorites -->
+			
+			{{#each tender_notifications}}
+			<!-- separator -->
+			<div class="separator-small"></div>
+			<!-- end separator -->
+	
+			<div class="favorites">
+				<div class="container">
+					<div class="content-wrapper">
+						<a href="#">
+							<div class="favorite-symbol active-symbol"><ion-icon name="heart-outline"></ion-icon></div>
+						</a>
+						<div class="content-image">
+							<img class="radius-default" src="images/jobs/jobs.jpg" alt="">
+						</div>
+						<div class="boxed">
+							<p class="title-item">{{this.title}}</p>
+							<p class="price-item">BUC/ADM/10/12/2019</p> 
+							<ul class="rating-item">
+								<li><ion-icon name="star-sharp"></ion-icon></li>
+								<li><ion-icon name="star-sharp"></ion-icon></li>
+								<li><ion-icon name="star-sharp"></ion-icon></li>
+								<li><ion-icon name="star-sharp"></ion-icon></li>
+								<li><ion-icon name="star-outline"></ion-icon></li>
+							</ul>
+							<p class="location-item"><ion-icon name="map-outline"></ion-icon>BOMET UNIVERSITY COLLEGE</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<!-- separator -->
+			<div class="separator-medium"></div>
+			<!-- end separator -->
+	
+			{{/each}}
+			<!-- end favorites -->
+		</div>
+	</div>
+	</template>

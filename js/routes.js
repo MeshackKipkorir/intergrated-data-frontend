@@ -158,9 +158,27 @@ var routes = [{
     },
 
     {
-        path: '/my-ads/',
-        url: './my-ads.html',
-    },
+        path: '/my-tenders/',
+        async: function (routeTo, routeFrom, resolve, reject) {
+          // Requested route
+          console.log(routeTo);
+          // Get external data and return template7 template
+          this.app.request.json('http://localhost:8000/api/fetchTenderNotification/'+sessionStorage.getItem('user'), function (data) {
+            resolve(
+              // How and what to load: template
+              {
+                componentUrl: './tender-notification.html'
+              },
+              // Custom template context
+              {
+                context: {
+                  tender_notifications: data,
+                },
+              }
+            );
+          });
+        }
+      },
 
     {
       path: '/favorites/',
@@ -297,7 +315,7 @@ var routes = [{
       async: function (routeTo, routeFrom, resolve, reject) {
         // Requested route
         console.log(routeTo);
-        console.log(sessionStorage.getItem('user') == null);
+        console.log(sessionStorage.getItem('user'));
         // Get external data and return template7 template
         if(sessionStorage.getItem('user') != null){
         this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
