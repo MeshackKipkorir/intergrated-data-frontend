@@ -243,6 +243,8 @@ return {
     }
     },
     applyFilter: function(){
+        app.preloader.show();
+
         var filter = $('#filter').val();
         console.log(filter);
         app.views.main.router.navigate('/filtered-jobs/'+filter+'/');   

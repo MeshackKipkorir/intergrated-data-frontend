@@ -52,6 +52,8 @@ var routes = [{
         // Get external data and return template7 template
         this.app.request.json(`http://127.0.0.1:8000/api/filterJobs/${filter}`, function (data) {
             console.log(data)
+            app.preloader.hide();
+
           resolve(
             // How and what to load: template
             {
@@ -79,6 +81,8 @@ var routes = [{
         // Get external data and return template7 template
         this.app.request.json(`http://127.0.0.1:8000/api/filterTenders/${filter}`, function (data) {
             console.log(data)
+            app.preloader.hide();
+
           resolve(
             // How and what to load: template
             {

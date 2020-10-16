@@ -24,22 +24,28 @@
 				
 
 				<!-- separator -->
-				<div class="separator-large"></div>
+				<div class="separator-small"></div>
 				<!-- end separator -->
-				
-				{{#each notifications}}
-				<div class="notifi-wrap">
-					<div class="image">
-						<img src="images/avatar2.jpg" alt="demo-image">
-						<span class="unread-symbol"></span>
-					</div>
-					<div class="text-right">
-						<h6>You have added <span>new vacancy</span><a href="#">{{this.title}}</a></h6>
-						<p class="notifi-date text-extra-small">2 hours ago. &nbsp; Deadline for application is {{this.closing_date}}</p>
-					</div>
-					<div class="clear-left"></div>
-				</div>
-				{{/each}}
+					{{#each notifications}}
+						<!-- separator -->
+						<div class="separator-small"></div>
+						<!-- end separator -->
+						<div class="favorites">
+							<div class="container">
+								<div class="content-wrapper">
+									<div class="boxed">
+										<p class="title-item">You have added <a>{{this.title}}</a> to your jobs</p>
+										<p class="location-item"><span><ion-icon name="time-outline"></ion-icon></span><span>Deadline: 10-09-2020</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- separator -->
+						<!-- end separator -->
+
+						{{/each}}
+						<!-- end favorites -->
 
 				<!-- separator -->
 				<div class="separator-large"></div>

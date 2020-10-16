@@ -722,7 +722,7 @@ html.with-panel .framework7-root > .view .tab {
     font-weight: 500;
     color: #383e50;
     margin-bottom: 5px;
-    white-space: nowrap;
+    white-space: inherit;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -737,7 +737,7 @@ html.with-panel .framework7-root > .view .tab {
 }
 
 .content-item .text-desc {
-    height: auto;
+    height: 80px;
     word-wrap: break-word;
     padding: 10px;
 }
@@ -938,6 +938,7 @@ html.with-panel .framework7-root > .view .tab {
 
 .favorites .content-image img {
     width: 90px;
+    height: 78px;
     float: left;
     margin-right: 15px;
 }
@@ -947,6 +948,8 @@ html.with-panel .framework7-root > .view .tab {
     padding: 12px;
     border-radius: 12px;
     width: 100%;
+    white-space: initial;
+
 }
 
 /* tab search */

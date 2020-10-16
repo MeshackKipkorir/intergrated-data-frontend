@@ -200,28 +200,36 @@
 <script>
     return {
         methods: {
-        addFavourite: function (title,job_id) {
-        var userEmail = sessionStorage.getItem('user');
-        console.log(title);
-        console.log(job_id);
-        
-        app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3', function (data,response) {
-            console.log(response);
+          addFavourite: function (title,job_id) {
+      var userEmail = sessionStorage.getItem('user');
+      console.log(title);
+      console.log(job_id);
+      
+      if(sessionStorage.getItem('user') != null){
+      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3'+'&closing_date=9-10-2020', function (data,response) {
+		console.log(response);
 
-            var obj = data; 
-            // console.log(obj);
-            // console.log(obj.success);
+		var obj = data; 
+        // console.log(obj);
+        // console.log(obj.success);
 
-            if (response == 200) {
-            console.log('fav added successfully');
-            app.dialog.alert('Added to favourites' , function () {});     
-            } else {
-                app.dialog.alert(obj.Message , function () {});
+        if (response == 200) {
+          console.log('fav added successfully');
+          app.dialog.alert('Added to favourites' , function () {});     
+        } else {
+			app.dialog.alert(obj.Message , function () {});
 
-            }
-        });
-        },
+        }
+      });
+    }
+    else{
+        app.dialog.alert('please login!');
+        app.views.main.router.navigate('/sign-in/');
+    }
+    },
         applyFilter: function(){
+        app.preloader.show();
+
         var filter = $('#filter').val();
         console.log(filter);
         app.views.main.router.navigate('/filtered-jobs/'+filter+'/');   
