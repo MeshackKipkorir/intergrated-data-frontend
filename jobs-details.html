@@ -170,7 +170,7 @@
                         <div class="col-50">
                             <div class="content-item radius-default bg-white">
                                 <a href="" data-transition="f7-dive">
-                                    <div class="favorite-symbol active-symbol" @click="addFavourite('{{this.post}}')">
+                                    <div class="favorite-symbol" id="{{this.id}}" @click="addFavourite('{{this.post}}')">
                                         <ion-icon name="heart-outline"></ion-icon>
                                     </div>
                                 </a>
@@ -347,7 +347,9 @@ return {
       var userEmail = sessionStorage.getItem('user');
       console.log(title);
       console.log(job_id);
-      
+      job_id = 3;
+      //change symbol to active
+      $('.favorite-symbol').addClass('active-symbol');  
       if(sessionStorage.getItem('user') != null){
       app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3'+'&closing_date=9-10-2020', function (data,response) {
 		console.log(response);
