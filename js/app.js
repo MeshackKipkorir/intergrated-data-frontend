@@ -14,8 +14,16 @@ var app = new Framework7({
     },
     touch:{
         fastClicks:true,
-    },
+    }
 });
+
+$(document).on('page:load', function (e) {
+    app.preloader.show();
+})
+
+$(document).on('page:init', function (e) {
+    app.preloader.hide();
+})
 
 app.sheet.create({
     el: '.my-sheet-swipe-to-close',

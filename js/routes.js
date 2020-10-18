@@ -21,6 +21,7 @@ var routes = [{
         console.log(routeTo);
         app.preloader.show();
         // Get external data and return template7 template
+        if(sessionStorage.getItem('user')!=null){
         this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestJobs`, function (data) {
             console.log(data)
             app.preloader.hide();
@@ -59,6 +60,14 @@ var routes = [{
             }
           );
         });
+      }
+      else{
+            resolve(
+                {
+                  componentUrl:'./sign-in.html'
+                }
+              )    
+      }
       }
     },
 
@@ -287,13 +296,27 @@ var routes = [{
     //services routes
     {
         path: '/category-details/',
-        componentUrl: './category-details.html',
-    },
+        async(routeTo, routeFrom, resolve, reject) {
+          if (sessionStorage.getItem('user') != null) {
+            resolve({componentUrl:'./category-details.html'})
+          } else {
+            app.preloader.show();
+            resolve({componentUrl:'./sign-in.html'})
+          }
+        }
+      },
 
     {
         path: '/job-details/',
-        componentUrl: './jobs-details.html',
-    },
+        async(routeTo, routeFrom, resolve, reject) {
+          if (sessionStorage.getItem('user') != null) {
+            resolve({componentUrl:'./jobs-details.html'})
+          } else {
+            app.preloader.show();
+            resolve({componentUrl:'./sign-in.html'})
+          }
+        }
+      },
      
 
     {
@@ -303,13 +326,27 @@ var routes = [{
 
     {
       path:'/counties-details',
-      componentUrl:'./counties-details.html',
+      async(routeTo, routeFrom, resolve, reject) {
+        if (sessionStorage.getItem('user') != null) {
+          resolve({componentUrl:'./counties-details.html'})
+        } else {
+          app.preloader.show();
+          resolve({componentUrl:'./sign-in.html'})
+        }
+      }
     },
 
     {
         path: '/ministries-details/',
-        componentUrl: './ministries-details.html',
-    },
+        async(routeTo, routeFrom, resolve, reject) {
+          if (sessionStorage.getItem('user') != null) {
+            resolve({componentUrl:'./ministries-details.html'})
+          } else {
+            app.preloader.show();
+            resolve({componentUrl:'./sign-in.html'})
+          }
+        }
+      },
 
     {
         path: '/big4agenda-details/',
@@ -390,8 +427,11 @@ var routes = [{
         });
       }
       else{
-        app.dialog.alert('please login!');
-        app.views.main.router.navigate('/sign-in/');  
+        resolve(
+          {
+           componentUrl:'./sign-in.html'
+          }
+        ) 
       }
       }
   },
