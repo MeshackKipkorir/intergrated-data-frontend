@@ -485,7 +485,6 @@ var routes = [{
     {
         path: '/sign-in/',
         async(routeTo, routeFrom, resolve, reject) {
-          app.preloader.hide();
          resolve(
            {
              componentUrl:'./sign-in.html'
