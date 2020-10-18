@@ -110,7 +110,7 @@
                       <td>{{this.type}}</td>
                       <td>{{this.tender_type}}</td>
                       <td>{{this.closing_date}}</td>
-                      <td><button class="button">Apply</button></td>
+                      <td><a onclick="window.location='mailto:{{this.email}}?Subject=Application For {{this.tender_title}} Tender'"><button class="button">Apply</button></a></td>
                     </tr>
                     {{/each}}
                   </tbody>
