@@ -1,0 +1,148 @@
+<template>
+
+<body>
+    <div class="page">
+       
+        <div class="navbar navbar-transparent">
+            <div class="navbar-bg"></div>
+            <div class="navbar-inner sliding">
+              <div class="left">
+                <a class="link back">
+                  <i class="icon icon-back"></i>
+                </a>
+              </div>
+              <div class="title" style="color:#698aff;position: relative;align-self: center;left: 136px;">Dashboard</div>
+            </div>
+        </div>
+          <!-- separator -->
+          <div class="separator-large"></div>
+          <!-- end separator -->
+          <!-- separator -->
+          <div class="separator-large"></div>
+          <!-- end separator -->
+    
+
+        <div class="page-content">
+            <div class="card data-table table-striped">
+                <table>
+                    <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Jobs</p>
+                  <thead>
+                    <tr>
+                      <th class="input-cell" >
+                        <span class="table-head-label">Title</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Department</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Vacancies</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Close Date</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Close Date</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each jobs}}
+                    <tr>
+                      <td>{{this.post}}</td>
+                      <td>{{this.department}}</td>
+                      <td>{{this.vacancies}}</td>
+                      <td>{{this.closing_date}}</td>
+                      <td><button class="button">Apply</button></td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                <div class="data-table-footer">
+                    <div class="data-table-rows-select">
+                      Per page:
+                      <div class="input input-dropdown">
+                        <select>
+                          <option value="5">5</option>
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="all">All</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="data-table-pagination">
+                      <span class="data-table-pagination-label">1-5 of 10</span>
+                      <a href="#" class="link disabled">
+                        <i class="icon icon-prev color-gray"></i>
+                      </a>
+                      <a href="#" class="link">
+                        <i class="icon icon-next color-gray"></i>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="card data-table">
+                <table>
+                    <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Tenders</p>
+                  <thead>
+                    <tr>
+                      <th class="input-cell">
+                        <span class="table-head-label">Title</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Entity</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Type</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Close Date</span>
+                      </th>
+                      <th class="input-cell">
+                        <span class="table-head-label">Apply</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{#each tenders}}
+                    <tr>
+                      <td>{{this.tender_title}}</td>
+                      <td>{{this.type}}</td>
+                      <td>{{this.tender_type}}</td>
+                      <td>{{this.closing_date}}</td>
+                      <td><button class="button">Apply</button></td>
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                <div class="data-table-footer">
+                    <div class="data-table-rows-select">
+                      Per page:
+                      <div class="input input-dropdown">
+                        <select>
+                          <option value="5">5</option>
+                          <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="all">All</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="data-table-pagination">
+                      <span class="data-table-pagination-label">1-5 of 10</span>
+                      <a href="#" class="link disabled">
+                        <i class="icon icon-prev color-gray"></i>
+                      </a>
+                      <a href="#" class="link">
+                        <i class="icon icon-next color-gray"></i>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+        </div>
+
+    </div>
+</body>
+
+</template>
+
+

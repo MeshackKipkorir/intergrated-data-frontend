@@ -15,6 +15,54 @@ var routes = [{
     },
 
     {
+      path:'/dashboard/',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        app.preloader.show();
+        // Get external data and return template7 template
+        this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestJobs`, function (data) {
+            console.log(data)
+            app.preloader.hide();
+
+            console.log(routeTo.params.id);
+          resolve(
+
+            // How and what to load: template
+            {
+              componentUrl: './dashboard.html'
+            },
+            // Custom template context
+            {
+              context: {
+                jobs: data,
+              },
+            }
+          );
+        });
+        this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestTenders`, function (data) {
+            console.log(data)
+            app.preloader.hide();
+
+            console.log(routeTo.params.id);
+          resolve(
+
+            // How and what to load: template
+            {
+              componentUrl: './dashboard.html'
+            },
+            // Custom template context
+            {
+              context: {
+                tenders: data,
+              },
+            }
+          );
+        });
+      }
+    },
+
+    {
         path: '/single-tender/:id/:image_url',
         async: function (routeTo, routeFrom, resolve, reject) {
           // Requested route
@@ -22,7 +70,7 @@ var routes = [{
           var tender_id = routeTo.params.id;
           var image_url = routeTo.params.image_url;
           // Get external data and return template7 template
-          this.app.request.json(`http://127.0.0.1:8000/api/singleTender/${tender_id}`, function (data) {
+          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleTender/${tender_id}`, function (data) {
               console.log(data)
               console.log(routeTo.params.id);
             resolve(
@@ -50,7 +98,7 @@ var routes = [{
         console.log(routeTo);
         var filter = routeTo.params.filter;
         // Get external data and return template7 template
-        this.app.request.json(`http://127.0.0.1:8000/api/filterJobs/${filter}`, function (data) {
+        this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/filterJobs/${filter}`, function (data) {
             console.log(data)
             app.preloader.hide();
 
@@ -79,8 +127,8 @@ var routes = [{
         console.log(routeTo);
         var filter = routeTo.params.filter;
         // Get external data and return template7 template
-        this.app.request.json(`http://127.0.0.1:8000/api/filterTenders/${filter}`, function (data) {
-            console.log(data)
+        this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/filterTenders/${filter}`, function (data) {
+            console.log(data);
             app.preloader.hide();
 
           resolve(
@@ -167,7 +215,7 @@ var routes = [{
           // Requested route
           console.log(routeTo);
           // Get external data and return template7 template
-          this.app.request.json('http://localhost:8000/api/fetchTenderNotification/'+sessionStorage.getItem('user'), function (data) {
+          this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchTenderNotification/'+sessionStorage.getItem('user'), function (data) {
             resolve(
               // How and what to load: template
               {
@@ -190,7 +238,7 @@ var routes = [{
         // Requested route
         console.log(routeTo);
         // Get external data and return template7 template
-        this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+        this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
           resolve(
             // How and what to load: template
             {
@@ -322,8 +370,12 @@ var routes = [{
         console.log(sessionStorage.getItem('user'));
         // Get external data and return template7 template
         if(sessionStorage.getItem('user') != null){
-        this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
-          resolve(
+          app.preloader.show();
+
+        this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+          app.preloader.hide();
+  
+        resolve(
             // How and what to load: 
             {
               componentUrl: './notifications.html'
@@ -354,7 +406,7 @@ var routes = [{
 
       // Get external data and return template7 template
       if(sessionStorage.getItem('user') != null){
-      this.app.request.json('http://localhost:8000/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+      this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
         resolve(
           // How and what to load: 
           {

@@ -99,7 +99,7 @@ return{
 
 			app.preloader.show();
 		
-			app.request.promise.postJSON('http://127.0.0.1:8000/api/auth/sign-up', { name:username, email:email, password: password,password_confirmation:password_confirmation })
+			app.request.promise.postJSON('https://demos.mediapal.net/mygov-scraper/scraper/public/api/auth/sign-up', { name:username, email:email, password: password,password_confirmation:password_confirmation })
 			.then(function (res) {
 				app.preloader.hide();
 				app.views.main.router.navigate('/sign-in/');

@@ -94,7 +94,7 @@
 	
 				app.preloader.show();
 			
-				app.request.promise.postJSON('http://127.0.0.1:8000/api/auth/login', { email:email, password: password })
+				app.request.promise.postJSON('https://demos.mediapal.net/mygov-scraper/scraper/public/api/auth/login', { email:email, password: password })
 				.then(function (res) {
 					app.preloader.hide();
 					sessionStorage.setItem('user',email);
@@ -103,7 +103,7 @@
 				}).catch(error => {
 
 					app.preloader.hide();
-					app.dialog.alert('Incoreect Password or Email!')
+					app.dialog.alert('Incorrect Password or Email!')
 					console.error('Error: ', error);
 				});
 

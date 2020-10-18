@@ -206,7 +206,7 @@
       console.log(job_id);
       
       if(sessionStorage.getItem('user') != null){
-      app.request.post('http://localhost:8000/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3'+'&closing_date=9-10-2020', function (data,response) {
+      app.request.post('https://demos.mediapal.net/mygov-scraper/scraper/public/api/insertNotification?email='+userEmail+'&title='+title+'&job_id=3'+'&closing_date=9-10-2020', function (data,response) {
 		console.log(response);
 
 		var obj = data; 
