@@ -300,7 +300,6 @@ var routes = [{
           if (sessionStorage.getItem('user') != null) {
             resolve({componentUrl:'./category-details.html'})
           } else {
-            app.preloader.show();
             resolve({componentUrl:'./sign-in.html'})
           }
         }
@@ -312,7 +311,6 @@ var routes = [{
           if (sessionStorage.getItem('user') != null) {
             resolve({componentUrl:'./jobs-details.html'})
           } else {
-            app.preloader.show();
             resolve({componentUrl:'./sign-in.html'})
           }
         }
@@ -330,7 +328,6 @@ var routes = [{
         if (sessionStorage.getItem('user') != null) {
           resolve({componentUrl:'./counties-details.html'})
         } else {
-          app.preloader.show();
           resolve({componentUrl:'./sign-in.html'})
         }
       }
@@ -342,7 +339,6 @@ var routes = [{
           if (sessionStorage.getItem('user') != null) {
             resolve({componentUrl:'./ministries-details.html'})
           } else {
-            app.preloader.show();
             resolve({componentUrl:'./sign-in.html'})
           }
         }
