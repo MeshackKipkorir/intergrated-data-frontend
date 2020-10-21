@@ -333,6 +333,7 @@
 <script>
 // script must return component object
 console.log('logged in as '+sessionStorage.getItem('user'));
+console.log(JSON.parse(featuredTender.response));
 return {
     data: function() {
         console.log(JSON.parse(featuredTender.response));

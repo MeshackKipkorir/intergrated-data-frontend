@@ -25,7 +25,7 @@ var routes = [{
         this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestJobs`, function (data) {
             console.log(data)
             app.preloader.hide();
-
+            
             console.log(routeTo.params.id);
           resolve(
 
@@ -285,8 +285,15 @@ var routes = [{
 
     {
         path: '/profile/',
-        url: './profile.html',
-    },
+        async(routeTo, routeFrom, resolve, reject) {
+          
+          if (sessionStorage.getItem('user') != null) {
+            resolve({componentUrl:'./profile.html'})
+          } else {
+            resolve({componentUrl:'./sign-in.html'})
+          }
+        }
+      },
 
     {
         path: '/categories/',

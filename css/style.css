@@ -943,6 +943,12 @@ html.with-panel .framework7-root > .view .tab {
     margin-right: 15px;
 }
 
+.dashboard-details{
+    color: #698aff;
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .favorites .boxed {
     background: #fff;
     padding: 12px;

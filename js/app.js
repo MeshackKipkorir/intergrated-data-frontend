@@ -17,14 +17,6 @@ var app = new Framework7({
     }
 });
 
-$(document).on('page:load', function (e) {
-    app.preloader.show();
-})
-
-$(document).on('page:init', function (e) {
-    app.preloader.hide();
-})
-
 app.sheet.create({
     el: '.my-sheet-swipe-to-close',
     swipeToClose: true,
@@ -56,7 +48,19 @@ var jobsJson = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper
 var tendersJson = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/tenders', function(data) {
     return data
 });
-var featuredTender = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/featured/6ß',function(data){
+var featuredTender = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/featured/6',function(data){
     return data
 });
 
+var user = sessionStorage.getItem('user');
+
+var userInfo = app.request.get('http://localhost:8000/api/auth/user/'+sessionStorage.getItem('user'),function(data){
+    return data
+});
+
+console.log(XMLHttpRequest.response);
+
+
+var username = document.getElementById('username');
+
+username.textContent += user;
