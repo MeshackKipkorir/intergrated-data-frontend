@@ -72,6 +72,18 @@ var routes = [{
     },
 
     {
+      path: '/dashboard-test/',
+      async(routeTo, routeFrom, resolve, reject) {
+        if (sessionStorage.getItem('user') != null) {
+          resolve({componentUrl:'./dashboard.html'})
+        } else {
+          resolve({componentUrl:'./sign-in.html'})
+        }
+      }
+    },
+   
+
+    {
         path: '/single-tender/:id/:image_url',
         async: function (routeTo, routeFrom, resolve, reject) {
           // Requested route

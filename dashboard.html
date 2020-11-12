@@ -25,62 +25,81 @@
               <h3>DashBoard</h3>
             </div>
 
+            <div class="favorites">
+              <a href="/single-tender/{{this.id}}/{{this.image}}">
+              <div class="container">
+                <div class="content-wrapper">
+                  <div class="boxed">
+                    <p class="price-item">Name: &nbsp &nbsp &nbsp &nbsp<span class="title-item">Meshack Kipkorir</span></p>
+                    <p class="price-item">Email: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.email}}</span></p> 
+                    <p class="price-item">Location: &nbsp<span class="title-item">Nairobi</span></p> 
+                    <p class="price-item">Phone: &nbsp &nbsp &nbsp<span class="title-item">0790019666</span></p> 
+                    <!-- <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p> -->
+                  </div>
+                </div>
+              </div>
+              </a>
+            <!-- separator -->
+            <div class="separator-small"></div>
+            <!-- end separator -->
+            </div>
+
             <div class="categories">
             <div class="container">
               <div class="row">
                   <div class="col-33">
-                      <a href="/category-details/" data-transition="f7-dive">
+                      <a href="/jobs-details/" data-transition="f7-dive">
                           <div class="content">
                               <!-- <ion-icon name="car-sport-outline" class="color-blue"></ion-icon> -->
-                              <span class="dashboard-details">6</span>
+                              <span class="dashboard-details">{{this.numberOfJobs}}</span>
                               <h6 class="second-title">New Jobs</h6>
                           </div>
                       </a>
                   </div>
                   <div class="col-33">
-                      <a href="/job-details/" data-transition="f7-dive">
+                      <a href="/category-details/" data-transition="f7-dive">
                           <div class="content">
                               <!-- <ion-icon name="bicycle-outline" class="color-purple"></ion-icon> -->
-                              <span class="dashboard-details">5</span>
+                              <span class="dashboard-details">{{this.numberOfTenders}}</span>
                               <h6 class="second-title">New Tenders</h6>
                           </div>
                       </a>
                   </div>
                   <div class="col-33">
-                      <a href="/ministries-details/" data-transition="f7-dive">
+                      <a href="/favorites/" data-transition="f7-dive">
                           <div class="content">
                               <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                              <span class="dashboard-details">7</span>
-                              <h6 class="second-title">Jobs in Favourite</h6>
+                              <span class="dashboard-details">{{this.favJobs}}</span>
+                              <h6 class="second-title">Favorite Jobs</h6>
                           </div>
                       </a>
                   </div>
               </div>
               <div class="row">
                   <div class="col-33">
-                      <a href="/counties-details/" data-transition="f7-dive">
+                      <a href="/my-tenders/" data-transition="f7-dive">
                           <div class="content">
                               <!-- <ion-icon name="tv-outline" class="color-red"></ion-icon> -->
-                              <span class="dashboard-details">13</span>
-                              <h6 class="second-title">Tenders in Favourite</h6>
+                              <span class="dashboard-details">{{this.favTenders}}</span>
+                              <h6 class="second-title">Favorite Tenders</h6>
                           </div>
                       </a>
                   </div>
                   <div class="col-33">
-                    <a href="/ministries-details/" data-transition="f7-dive">
+                    <a href="/job-details/" data-transition="f7-dive">
                         <div class="content">
                             <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                            <span class="dashboard-details">7</span>
-                            <h6 class="second-title">Jobs in Favourite</h6>
+                            <span class="dashboard-details">{{this.allJobs}}</span>
+                            <h6 class="second-title">All jobs</h6>
                         </div>
                     </a>
                 </div>
                 <div class="col-33">
-                  <a href="/ministries-details/" data-transition="f7-dive">
+                  <a href="/category-details/" data-transition="f7-dive">
                       <div class="content">
                           <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                          <span class="dashboard-details">7</span>
-                          <h6 class="second-title">Jobs in Favourite</h6>
+                          <span class="dashboard-details">{{this.allTenders}}</span>
+                          <h6 class="second-title">All Tenders</h6>
                       </div>
                   </a>
               </div>
@@ -99,7 +118,7 @@
           left: 10px;
       ">NEWLY ADDED JOBS</h3>
         </div>
-        {{#each jobs}}
+        {{#each latestJobs}}
         <div class="favorites">
           <a href="/single-job/{{this.id}}/jobs.jpg">
           <div class="container">
@@ -126,10 +145,9 @@
             font-size: 10;
             font-size: 13px;
             position: relative;
-            left: 10px;
-          ">NEW TENDERS</h3>
+            left: 10px;">NEW TENDERS</h3>
           </div>
-          {{#each tenders}}
+          {{#each latestTenders}}
           <div class="favorites">
             <a href="/single-tender/{{this.id}}/{{this.image}}">
             <div class="container">
@@ -270,7 +288,54 @@
 
     </div>
 </body>
-
 </template>
+<script>
+  // script must return component object
+  console.log("number of new jobs is : "+ JSON.parse(latestJobs.response).length)
+  console.log("number of new Tenders is : "+ JSON.parse(latestJobs.response).length)
+  console.log("number of jobs in favorites is : "+ JSON.parse(favoritedJobs.response).length)
+  console.log("number of tenders in favorites is : "+ JSON.parse(favoritedTenders.response).length)
+  console.log("number of all tenders  is : "+ JSON.parse(tendersJson.response).data.length)
+  console.log("number of all jobs  is : "+ JSON.parse(jobsJson.response).data.length)
+
+
+
+
+  return {
+      data: function() {
+          console.log(JSON.parse(jobsJson.response));
+          console.log(JSON.parse(latestTenders.response));
+          //count of items
+          var numberOfJobs =  JSON.parse(latestJobs.response).length;
+          var numberOfTenders = JSON.parse(latestTenders.response).length;
+          var numberOfFavJobs = JSON.parse(favoritedJobs.response).length;
+          var numberOfFavTenders = JSON.parse(favoritedTenders.response).length;
+          var numberOfAllJobs = JSON.parse(jobsJson.response).data.length;
+          var numberOfAllTenders = JSON.parse(tendersJson.response).data.length;
+
+          //check if user is logged in then fetch user details
+          if(sessionStorage.getItem('user') != null){
+            console.log('you can fetch users data. User email is :' +sessionStorage.getItem('user'));
+            var email = sessionStorage.getItem('user');
+          }
+          return {
+              latestJobs: JSON.parse(latestJobs.response),
+              latestTenders:JSON.parse(latestTenders.response),
+              email:email,
+              numberOfJobs:numberOfJobs,
+              numberOfTenders:numberOfTenders,
+              favJobs:numberOfFavJobs,
+              favTenders:numberOfFavTenders,
+              allJobs:numberOfAllJobs,
+              allTenders:numberOfAllTenders
+          }
+      },
+      on: {
+          pageInit: function(e, page) {
+              console.log('');
+          }
+      }
+  }
+  </script>
 
 

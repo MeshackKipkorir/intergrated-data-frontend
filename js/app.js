@@ -51,6 +51,19 @@ var tendersJson = app.request.get('https://demos.mediapal.net/mygov-scraper/scra
 var featuredTender = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/featured/6',function(data){
     return data
 });
+var latestJobs = app.request.get(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestJobs`,function(data){
+    return data
+});
+var latestTenders = app.request.get(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/latestTenders`, function (data) {
+    return data
+});
+var favoritedTenders = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchTenderNotification/'+sessionStorage.getItem('user'), function (data) {
+    return data
+});
+var favoritedJobs = app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+    return data
+})
+
 
 var user = sessionStorage.getItem('user');
 
