@@ -60,10 +60,12 @@ var latestTenders = app.request.get(`https://demos.mediapal.net/mygov-scraper/sc
 var favoritedTenders = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchTenderNotification/'+sessionStorage.getItem('user'), function (data) {
     return data
 });
-var favoritedJobs = app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+var favoritedJobs = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
     return data
-})
-
+});
+var userData = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchUser/'+sessionStorage.getItem('user'),function(data){
+    return data
+});
 
 var user = sessionStorage.getItem('user');
 
@@ -72,7 +74,6 @@ var userInfo = app.request.get('http://localhost:8000/api/auth/user/'+sessionSto
 });
 
 console.log(XMLHttpRequest.response);
-
 
 var username = document.getElementById('username');
 

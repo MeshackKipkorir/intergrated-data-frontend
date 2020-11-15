@@ -457,7 +457,6 @@ var routes = [{
       console.log(routeTo);
       console.log(sessionStorage.getItem('user') == null);
       sessionStorage.setItem('user',null);
-      console.log('current situeshen '+sessionStorage.getItem('user'));
 
       // Get external data and return template7 template
       if(sessionStorage.getItem('user') != null){

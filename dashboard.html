@@ -30,10 +30,10 @@
               <div class="container">
                 <div class="content-wrapper">
                   <div class="boxed">
-                    <p class="price-item">Name: &nbsp &nbsp &nbsp &nbsp<span class="title-item">Meshack Kipkorir</span></p>
+                    <p class="price-item">Name: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.name}}</span></p>
                     <p class="price-item">Email: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.email}}</span></p> 
-                    <p class="price-item">Location: &nbsp<span class="title-item">Nairobi</span></p> 
-                    <p class="price-item">Phone: &nbsp &nbsp &nbsp<span class="title-item">0790019666</span></p> 
+                    <p class="price-item">Location: &nbsp<span class="title-item">{{this.location}}</span></p> 
+                    <p class="price-item">Phone: &nbsp &nbsp &nbsp<span class="title-item">0{{this.phone}}</span></p> 
                     <!-- <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p> -->
                   </div>
                 </div>
@@ -298,13 +298,15 @@
   console.log("number of all tenders  is : "+ JSON.parse(tendersJson.response).data.length)
   console.log("number of all jobs  is : "+ JSON.parse(jobsJson.response).data.length)
 
+  console.log(JSON.parse(favoritedTenders.response))
+
+
 
 
 
   return {
       data: function() {
-          console.log(JSON.parse(jobsJson.response));
-          console.log(JSON.parse(latestTenders.response));
+          console.log(JSON.parse(userData.response)[0]['name']);
           //count of items
           var numberOfJobs =  JSON.parse(latestJobs.response).length;
           var numberOfTenders = JSON.parse(latestTenders.response).length;
@@ -312,6 +314,16 @@
           var numberOfFavTenders = JSON.parse(favoritedTenders.response).length;
           var numberOfAllJobs = JSON.parse(jobsJson.response).data.length;
           var numberOfAllTenders = JSON.parse(tendersJson.response).data.length;
+
+
+
+          //assign user data values to variables
+          var phone = JSON.parse(userData.response)[0]['phone'];
+          var email = JSON.parse(userData.response)[0]['email'];
+          var location = JSON.parse(userData.response)[0]['location'];
+          var occupation = JSON.parse(userData.response)[0]['occupation'];
+          var name = JSON.parse(userData.response)[0]['name'];
+
 
           //check if user is logged in then fetch user details
           if(sessionStorage.getItem('user') != null){
@@ -322,6 +334,10 @@
               latestJobs: JSON.parse(latestJobs.response),
               latestTenders:JSON.parse(latestTenders.response),
               email:email,
+              name:name,
+              phone:phone,
+              location:location,
+              occupation:occupation,
               numberOfJobs:numberOfJobs,
               numberOfTenders:numberOfTenders,
               favJobs:numberOfFavJobs,
