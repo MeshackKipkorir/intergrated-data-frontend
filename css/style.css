@@ -115,7 +115,7 @@ h6 {
 }
 
 a {
-    color: #fff;
+    color: #888 ;
 }
 
 a:focus {
@@ -1733,4 +1733,15 @@ html.with-panel .framework7-root > .view .tab {
 @media screen and (min-width: 540px) and (max-width: 780px) {
  
 
+}
+
+/* close icon */
+.close{
+    position: relative;
+    left: -23px;
+    top: 12px;
+}
+
+.close p{
+    font-size: 14px;
 }

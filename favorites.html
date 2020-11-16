@@ -14,7 +14,7 @@
 	<div class="page-content">
 		<!-- favorites -->
 		
-		{{#each notifications}}
+		{{#each data}}
 		<!-- separator -->
 		<div class="separator-small"></div>
 		<!-- end separator -->
@@ -30,6 +30,9 @@
 						<p class="price-item">BUC/ADM/10/12/2019</p> 
 						<p class="location-item"><ion-icon name="map-outline"></ion-icon>BOMET UNIVERSITY COLLEGE</p>
 					</div>
+					<div class="close" @click="remove('{{this.id}}')">
+						<p><ion-icon name="close-outline"></ion-icon></p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -43,3 +46,38 @@
 	</div>
 </div>
 </template>
+<script>
+	console.log(JSON.parse(favoritedJobs.response))
+return{
+	data:function(){
+
+		return{
+			data:JSON.parse(favoritedJobs.response)
+		}
+	},
+	methods:{
+		remove:function(id){
+			var email = sessionStorage.getItem('user');
+			console.log(email,id)
+			if(sessionStorage.getItem('user') != null){
+			app.request.post('https://demos.mediapal.net/mygov-scraper/scraper/public/api/deleteFavorite/'+id+'/user/'+email, function (data,response) {
+				console.log(response);
+
+				var obj = data; 
+				// console.log(obj);
+				// console.log(obj.success);
+
+				if (response == 200) {
+				console.log('job deleted from your favorites');
+				app.dialog.alert('Deleted From Your Favorites' , function () {});     
+				} else {
+					app.dialog.alert(obj.Message , function () {});
+
+				}
+			});
+			}
+
+		}
+	}
+}
+</script>

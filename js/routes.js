@@ -252,29 +252,39 @@ var routes = [{
           });
         }
       },
-
+  //   {
+  //     path: '/favorites/',
+  //     async: function (routeTo, routeFrom, resolve, reject) {
+  //       // Requested route
+  //       console.log(routeTo);
+  //       // Get external data and return template7 template
+  //       this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
+  //         resolve(
+  //           // How and what to load: template
+  //           {
+  //             componentUrl: './favorites.html'
+  //           },
+  //           // Custom template context
+  //           {
+  //             context: {
+  //               notifications: data,
+  //             },
+  //           }
+  //         );
+  //       });
+  //     }
+  // },
     {
-      path: '/favorites/',
-      async: function (routeTo, routeFrom, resolve, reject) {
-        // Requested route
-        console.log(routeTo);
-        // Get external data and return template7 template
-        this.app.request.json('https://demos.mediapal.net/mygov-scraper/scraper/public/api/fetchNotification/'+sessionStorage.getItem('user'), function (data) {
-          resolve(
-            // How and what to load: template
-            {
-              componentUrl: './favorites.html'
-            },
-            // Custom template context
-            {
-              context: {
-                notifications: data,
-              },
-            }
-          );
-        });
+      path:'/favorites/',
+      async(routeTo, routeFrom, resolve, reject) {
+        if (sessionStorage.getItem('user') != null) {
+          resolve({componentUrl:'./favorites.html'})
+        } else {
+          resolve({componentUrl:'./sign-in.html'})
+        }
       }
-  },
+    },
+
     {
       path:'/job-categories/',
       url:'./job-categories.html'

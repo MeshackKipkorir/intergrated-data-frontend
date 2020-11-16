@@ -67,6 +67,7 @@ var userData = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper
     return data
 });
 
+
 var user = sessionStorage.getItem('user');
 
 var userInfo = app.request.get('http://localhost:8000/api/auth/user/'+sessionStorage.getItem('user'),function(data){
