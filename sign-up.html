@@ -126,7 +126,7 @@ return{
 			app.request.promise.postJSON('https://demos.mediapal.net/mygov-scraper/scraper/public/api/auth/sign-up', { name:username, email:email,phone:phone,occupation:occupation,location:location,password: password,password_confirmation:password_confirmation })
 			.then(function (res) {
 				app.preloader.hide();
-				app.views.main.router.navigate('/sign-in/');
+				app.views.main.router.navigate('/index/');
 
 				console.log(res.data);
 			}).catch(error => {
