@@ -1745,3 +1745,9 @@ html.with-panel .framework7-root > .view .tab {
 .close p{
     font-size: 14px;
 }
+
+.close-tender{
+    position: absolute;
+    top: 11px;
+    left: 365px;
+}

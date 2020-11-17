@@ -69,13 +69,16 @@ return{
 
 				if (response == 200) {
 				console.log('job deleted from your favorites');
-				app.dialog.alert('Deleted From Your Favorites' , function () {});     
+				app.dialog.alert('Deleted From Your Favorites' , function () {});  
+				app.views.main.router.navigate(app.views.main.router.url, {reloadCurrent: true});
+					
 				} else {
 					app.dialog.alert(obj.Message , function () {});
 
 				}
 			});
 			}
+			
 
 		}
 	}
