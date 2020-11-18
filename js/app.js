@@ -67,14 +67,15 @@ var userData = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper
     return data
 });
 
+console.log(userData.response);
+
 
 var user = sessionStorage.getItem('user');
 
-var userInfo = app.request.get('http://localhost:8000/api/auth/user/'+sessionStorage.getItem('user'),function(data){
+var userInfo = app.request.get('https://demos.mediapal.net/mygov-scraper/scraper/public/api/auth/user/'+sessionStorage.getItem('user'),function(data){
     return data
 });
 
-console.log(XMLHttpRequest.response);
 
 var username = document.getElementById('username');
 

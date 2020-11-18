@@ -1,142 +1,112 @@
 <template>
 
-<body>
-    <div class="page">
-       
-        <div class="navbar navbar-transparent">
-            <div class="navbar-bg"></div>
-            <div class="navbar-inner sliding">
-              <div class="left">
-                <a class="link back">
-                  <i class="icon icon-back"></i>
-                </a>
-              </div>
-            </div>
-        </div>
-          <!-- separator -->
-          <div class="separator-large"></div>
-          <!-- end separator -->
-          <!-- separator -->
-          <div class="separator-large"></div>
-          <!-- end separator -->
-
-          <div class="page-content">
-            <div class="title" style="color:#698aff;position: relative;align-self: center;left: 136px;top:-35px">
-              <h3>DashBoard</h3>
-            </div>
-
-            <div class="favorites">
-              <a href="/single-tender/{{this.id}}/{{this.image}}">
-              <div class="container">
-                <div class="content-wrapper">
-                  <div class="boxed">
-                    <p class="price-item">Name: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.name}}</span></p>
-                    <p class="price-item">Email: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.email}}</span></p> 
-                    <p class="price-item">Location: &nbsp<span class="title-item">{{this.location}}</span></p> 
-                    <p class="price-item">Phone: &nbsp &nbsp &nbsp<span class="title-item">0{{this.phone}}</span></p> 
-                    <!-- <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p> -->
-                  </div>
+  <body>
+      <div class="page">
+         
+          <div class="navbar navbar-transparent">
+              <div class="navbar-bg"></div>
+              <div class="navbar-inner sliding">
+                <div class="left">
+                  <a class="link back">
+                    <i class="icon icon-back"></i>
+                  </a>
                 </div>
               </div>
-              </a>
+          </div>
             <!-- separator -->
-            <div class="separator-small"></div>
+            <div class="separator-large"></div>
             <!-- end separator -->
-            </div>
-
-            <div class="categories">
-            <div class="container">
-              <div class="row">
-                  <div class="col-33">
-                      <a href="/jobs-details/" data-transition="f7-dive">
-                          <div class="content">
-                              <!-- <ion-icon name="car-sport-outline" class="color-blue"></ion-icon> -->
-                              <span class="dashboard-details">{{this.numberOfJobs}}</span>
-                              <h6 class="second-title">New Jobs</h6>
-                          </div>
-                      </a>
+            <!-- separator -->
+            <div class="separator-large"></div>
+            <!-- end separator -->
+  
+            <div class="page-content">
+              <div class="title" style="color:#698aff;position: relative;align-self: center;left: 136px;top:-35px">
+                <h3>DashBoard</h3>
+              </div>
+  
+              <div class="favorites">
+                <a href="/single-tender/{{this.id}}/{{this.image}}">
+                <div class="container">
+                  <div class="content-wrapper">
+                    <div class="boxed">
+                      <p class="price-item">Name: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.name}}</span></p>
+                      <p class="price-item">Email: &nbsp &nbsp &nbsp &nbsp<span class="title-item">{{this.email}}</span></p> 
+                      <p class="price-item">Location: &nbsp<span class="title-item">{{this.location}}</span></p> 
+                      <p class="price-item">Phone: &nbsp &nbsp &nbsp<span class="title-item">0{{this.phone}}</span></p> 
+                      <!-- <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p> -->
+                    </div>
                   </div>
-                  <div class="col-33">
-                      <a href="/category-details/" data-transition="f7-dive">
-                          <div class="content">
-                              <!-- <ion-icon name="bicycle-outline" class="color-purple"></ion-icon> -->
-                              <span class="dashboard-details">{{this.numberOfTenders}}</span>
-                              <h6 class="second-title">New Tenders</h6>
-                          </div>
-                      </a>
-                  </div>
-                  <div class="col-33">
-                      <a href="/favorites/" data-transition="f7-dive">
+                </div>
+                </a>
+              <!-- separator -->
+              <div class="separator-small"></div>
+              <!-- end separator -->
+              </div>
+  
+              <div class="categories">
+              <div class="container">
+                <div class="row">
+                    <div class="col-33">
+                        <a href="/jobs-details/" data-transition="f7-dive">
+                            <div class="content">
+                                <!-- <ion-icon name="car-sport-outline" class="color-blue"></ion-icon> -->
+                                <span class="dashboard-details">{{this.numberOfJobs}}</span>
+                                <h6 class="second-title">New Jobs</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-33">
+                        <a href="/category-details/" data-transition="f7-dive">
+                            <div class="content">
+                                <!-- <ion-icon name="bicycle-outline" class="color-purple"></ion-icon> -->
+                                <span class="dashboard-details">{{this.numberOfTenders}}</span>
+                                <h6 class="second-title">New Tenders</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-33">
+                        <a href="/favorites/" data-transition="f7-dive">
+                            <div class="content">
+                                <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
+                                <span class="dashboard-details">{{this.favJobs}}</span>
+                                <h6 class="second-title">Favorite Jobs</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-33">
+                        <a href="/my-tenders/" data-transition="f7-dive">
+                            <div class="content">
+                                <!-- <ion-icon name="tv-outline" class="color-red"></ion-icon> -->
+                                <span class="dashboard-details">{{this.favTenders}}</span>
+                                <h6 class="second-title">Favorite Tenders</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-33">
+                      <a href="/job-details/" data-transition="f7-dive">
                           <div class="content">
                               <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                              <span class="dashboard-details">{{this.favJobs}}</span>
-                              <h6 class="second-title">Favorite Jobs</h6>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-33">
-                      <a href="/my-tenders/" data-transition="f7-dive">
-                          <div class="content">
-                              <!-- <ion-icon name="tv-outline" class="color-red"></ion-icon> -->
-                              <span class="dashboard-details">{{this.favTenders}}</span>
-                              <h6 class="second-title">Favorite Tenders</h6>
+                              <span class="dashboard-details">{{this.allJobs}}</span>
+                              <h6 class="second-title">All jobs</h6>
                           </div>
                       </a>
                   </div>
                   <div class="col-33">
-                    <a href="/job-details/" data-transition="f7-dive">
+                    <a href="/category-details/" data-transition="f7-dive">
                         <div class="content">
                             <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                            <span class="dashboard-details">{{this.allJobs}}</span>
-                            <h6 class="second-title">All jobs</h6>
+                            <span class="dashboard-details">{{this.allTenders}}</span>
+                            <h6 class="second-title">All Tenders</h6>
                         </div>
                     </a>
                 </div>
-                <div class="col-33">
-                  <a href="/category-details/" data-transition="f7-dive">
-                      <div class="content">
-                          <!-- <ion-icon name="home-outline" class="color-orange"></ion-icon> -->
-                          <span class="dashboard-details">{{this.allTenders}}</span>
-                          <h6 class="second-title">All Tenders</h6>
-                      </div>
-                  </a>
-              </div>
-              </div>
-          </div>
-          </div>
-
-        <!-- separator -->
-        <div class="separator-small"></div>
-        <!-- end separator -->
-        <div class="block-title">
-          <h3 class="" style="
-          font-size: 10;
-          font-size: 13px;
-          position: relative;
-          left: 10px;
-      ">NEWLY ADDED JOBS</h3>
-        </div>
-        {{#each latestJobs}}
-        <div class="favorites">
-          <a href="/single-job/{{this.id}}/jobs.jpg">
-          <div class="container">
-            <div class="content-wrapper">
-              <div class="boxed">
-                <p class="title-item">{{this.post}}</p>
-                <p class="price-item">{{this.department}}</p> 
-                <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p>
-              </div>
+                </div>
             </div>
-          </div>
-          </a>
-           <!-- separator -->
-        <div class="separator-small"></div>
-        <!-- end separator -->
-        </div>
-        {{/each}}
-
+            </div>
+  
           <!-- separator -->
           <div class="separator-small"></div>
           <!-- end separator -->
@@ -145,213 +115,239 @@
             font-size: 10;
             font-size: 13px;
             position: relative;
-            left: 10px;">NEW TENDERS</h3>
+            left: 10px;
+        ">NEWLY ADDED JOBS</h3>
           </div>
-          {{#each latestTenders}}
+          {{#each latestJobs}}
           <div class="favorites">
-            <a href="/single-tender/{{this.id}}/{{this.image}}">
+            <a href="/single-job/{{this.id}}/jobs.jpg">
             <div class="container">
               <div class="content-wrapper">
                 <div class="boxed">
-                  <p class="title-item">{{this.tender_title}}</p>
-                  <p class="price-item">{{this.org_name}}</p> 
+                  <p class="title-item">{{this.post}}</p>
+                  <p class="price-item">{{this.department}}</p> 
                   <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p>
                 </div>
               </div>
             </div>
             </a>
-              <!-- separator -->
+             <!-- separator -->
           <div class="separator-small"></div>
           <!-- end separator -->
           </div>
           {{/each}}
-
-        </div>
-
-        <!-- <div class="page-content">
-            <div class="card data-table table-striped">
-                <table>
-                    <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Jobs</p>
-                  <thead>
-                    <tr>
-                      <th class="input-cell" >
-                        <span class="table-head-label">Title</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Department</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Vacancies</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Close Date</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Close Date</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each jobs}}
-                    <tr>
-                      <td>{{this.post}}</td>
-                      <td>{{this.department}}</td>
-                      <td>{{this.vacancies}}</td>
-                      <td>{{this.closing_date}}</td>
-                      <td><button class="button">Apply</button></td>
-                    </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-                <div class="data-table-footer">
-                    <div class="data-table-rows-select">
-                      Per page:
-                      <div class="input input-dropdown">
-                        <select>
-                          <option value="5">5</option>
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="all">All</option>
-                        </select>
+  
+            <!-- separator -->
+            <div class="separator-small"></div>
+            <!-- end separator -->
+            <div class="block-title">
+              <h3 class="" style="
+              font-size: 10;
+              font-size: 13px;
+              position: relative;
+              left: 10px;">NEW TENDERS</h3>
+            </div>
+            {{#each latestTenders}}
+            <div class="favorites">
+              <a href="/single-tender/{{this.id}}/{{this.image}}">
+              <div class="container">
+                <div class="content-wrapper">
+                  <div class="boxed">
+                    <p class="title-item">{{this.tender_title}}</p>
+                    <p class="price-item">{{this.org_name}}</p> 
+                    <p class="location-item"><ion-icon name="time-outline"></ion-icon>Application Deadline: {{this.closing_date}}</p>
+                  </div>
+                </div>
+              </div>
+              </a>
+                <!-- separator -->
+            <div class="separator-small"></div>
+            <!-- end separator -->
+            </div>
+            {{/each}}
+  
+          </div>
+  
+          <!-- <div class="page-content">
+              <div class="card data-table table-striped">
+                  <table>
+                      <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Jobs</p>
+                    <thead>
+                      <tr>
+                        <th class="input-cell" >
+                          <span class="table-head-label">Title</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Department</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Vacancies</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Close Date</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Close Date</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each jobs}}
+                      <tr>
+                        <td>{{this.post}}</td>
+                        <td>{{this.department}}</td>
+                        <td>{{this.vacancies}}</td>
+                        <td>{{this.closing_date}}</td>
+                        <td><button class="button">Apply</button></td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <div class="data-table-footer">
+                      <div class="data-table-rows-select">
+                        Per page:
+                        <div class="input input-dropdown">
+                          <select>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="all">All</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="data-table-pagination">
+                        <span class="data-table-pagination-label">1-5 of 10</span>
+                        <a href="#" class="link disabled">
+                          <i class="icon icon-prev color-gray"></i>
+                        </a>
+                        <a href="#" class="link">
+                          <i class="icon icon-next color-gray"></i>
+                        </a>
                       </div>
                     </div>
-                    <div class="data-table-pagination">
-                      <span class="data-table-pagination-label">1-5 of 10</span>
-                      <a href="#" class="link disabled">
-                        <i class="icon icon-prev color-gray"></i>
-                      </a>
-                      <a href="#" class="link">
-                        <i class="icon icon-next color-gray"></i>
-                      </a>
-                    </div>
-                  </div>
-              </div>
-
-              <div class="card data-table">
-                <table>
-                    <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Tenders</p>
-                  <thead>
-                    <tr>
-                      <th class="input-cell">
-                        <span class="table-head-label">Title</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Entity</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Type</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Close Date</span>
-                      </th>
-                      <th class="input-cell">
-                        <span class="table-head-label">Apply</span>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each tenders}}
-                    <tr>
-                      <td>{{this.tender_title}}</td>
-                      <td>{{this.type}}</td>
-                      <td>{{this.tender_type}}</td>
-                      <td>{{this.closing_date}}</td>
-                      <td><a onclick="window.location='mailto:{{this.email}}?Subject=Application For {{this.tender_title}} Tender'"><button class="button">Apply</button></a></td>
-                    </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-                <div class="data-table-footer">
-                    <div class="data-table-rows-select">
-                      Per page:
-                      <div class="input input-dropdown">
-                        <select>
-                          <option value="5">5</option>
-                          <option value="10">10</option>
-                          <option value="25">25</option>
-                          <option value="all">All</option>
-                        </select>
+                </div>
+  
+                <div class="card data-table">
+                  <table>
+                      <p class="price-item" style="position: relative;left: 10px;top: 10px;">Latest Tenders</p>
+                    <thead>
+                      <tr>
+                        <th class="input-cell">
+                          <span class="table-head-label">Title</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Entity</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Type</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Close Date</span>
+                        </th>
+                        <th class="input-cell">
+                          <span class="table-head-label">Apply</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each tenders}}
+                      <tr>
+                        <td>{{this.tender_title}}</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.tender_type}}</td>
+                        <td>{{this.closing_date}}</td>
+                        <td><a onclick="window.location='mailto:{{this.email}}?Subject=Application For {{this.tender_title}} Tender'"><button class="button">Apply</button></a></td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <div class="data-table-footer">
+                      <div class="data-table-rows-select">
+                        Per page:
+                        <div class="input input-dropdown">
+                          <select>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="all">All</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="data-table-pagination">
+                        <span class="data-table-pagination-label">1-5 of 10</span>
+                        <a href="#" class="link disabled">
+                          <i class="icon icon-prev color-gray"></i>
+                        </a>
+                        <a href="#" class="link">
+                          <i class="icon icon-next color-gray"></i>
+                        </a>
                       </div>
                     </div>
-                    <div class="data-table-pagination">
-                      <span class="data-table-pagination-label">1-5 of 10</span>
-                      <a href="#" class="link disabled">
-                        <i class="icon icon-prev color-gray"></i>
-                      </a>
-                      <a href="#" class="link">
-                        <i class="icon icon-next color-gray"></i>
-                      </a>
-                    </div>
-                  </div>
-              </div>
-        </div> -->
-
-    </div>
-</body>
-</template>
-<script>
-  // script must return component object
-  console.log("number of new jobs is : "+ JSON.parse(latestJobs.response).length)
-  console.log("number of new Tenders is : "+ JSON.parse(latestJobs.response).length)
-  console.log("number of jobs in favorites is : "+ JSON.parse(favoritedJobs.response).length)
-  console.log("number of tenders in favorites is : "+ JSON.parse(favoritedTenders.response).length)
-  console.log("number of all tenders  is : "+ JSON.parse(tendersJson.response).data.length)
-  console.log("number of all jobs  is : "+ JSON.parse(jobsJson.response).data.length)
-
-  console.log(JSON.parse(favoritedTenders.response))
-
-
-
-
-
-  return {
-      data: function() {
-          console.log(JSON.parse(userData.response)[0]['name']);
-          //count of items
-          var numberOfJobs =  JSON.parse(latestJobs.response).length;
-          var numberOfTenders = JSON.parse(latestTenders.response).length;
-          var numberOfFavJobs = JSON.parse(favoritedJobs.response).length;
-          var numberOfFavTenders = JSON.parse(favoritedTenders.response).length;
-          var numberOfAllJobs = JSON.parse(jobsJson.response).data.length;
-          var numberOfAllTenders = JSON.parse(tendersJson.response).data.length;
-
-
-
-          //assign user data values to variables
-          var phone = JSON.parse(userData.response)[0]['phone'];
-          var email = JSON.parse(userData.response)[0]['email'];
-          var location = JSON.parse(userData.response)[0]['location'];
-          var occupation = JSON.parse(userData.response)[0]['occupation'];
-          var name = JSON.parse(userData.response)[0]['name'];
-
-
-          //check if user is logged in then fetch user details
-          if(sessionStorage.getItem('user') != null){
-            console.log('you can fetch users data. User email is :' +sessionStorage.getItem('user'));
-            var email = sessionStorage.getItem('user');
-          }
-          return {
-              latestJobs: JSON.parse(latestJobs.response),
-              latestTenders:JSON.parse(latestTenders.response),
-              email:email,
-              name:name,
-              phone:phone,
-              location:location,
-              occupation:occupation,
-              numberOfJobs:numberOfJobs,
-              numberOfTenders:numberOfTenders,
-              favJobs:numberOfFavJobs,
-              favTenders:numberOfFavTenders,
-              allJobs:numberOfAllJobs,
-              allTenders:numberOfAllTenders
-          }
-      },
-      on: {
-          pageInit: function(e, page) {
-              console.log('');
-          }
-      }
-  }
-  </script>
-
-
+                </div>
+          </div> -->
+  
+      </div>
+  </body>
+  </template>
+  <script>
+    // script must return component object
+    console.log("number of new jobs is : "+ JSON.parse(latestJobs.response).length)
+    console.log("number of new Tenders is : "+ JSON.parse(latestJobs.response).length)
+    console.log("number of jobs in favorites is : "+ JSON.parse(favoritedJobs.response).length)
+    console.log("number of tenders in favorites is : "+ JSON.parse(favoritedTenders.response).length)
+    console.log("number of all tenders  is : "+ JSON.parse(tendersJson.response).data.length)
+    console.log("number of all jobs  is : "+ JSON.parse(jobsJson.response).data.length)
+  
+    console.log(JSON.parse(favoritedTenders.response))
+  
+    
+    return {
+        data: function() {
+            console.log(JSON.parse(userData.response)[0]['name']);
+            //count of items
+            var numberOfJobs =  JSON.parse(latestJobs.response).length;
+            var numberOfTenders = JSON.parse(latestTenders.response).length;
+            var numberOfFavJobs = JSON.parse(favoritedJobs.response).length;
+            var numberOfFavTenders = JSON.parse(favoritedTenders.response).length;
+            var numberOfAllJobs = JSON.parse(jobsJson.response).data.length;
+            var numberOfAllTenders = JSON.parse(tendersJson.response).data.length;
+  
+  
+  
+            //assign user data values to variables
+            var phone = JSON.parse(userData.response)[0]['phone'];
+            var email = JSON.parse(userData.response)[0]['email'];
+            var location = JSON.parse(userData.response)[0]['location'];
+            var occupation = JSON.parse(userData.response)[0]['occupation'];
+            var name = JSON.parse(userData.response)[0]['name'];
+  
+  
+            //check if user is logged in then fetch user details
+            if(sessionStorage.getItem('user') != null){
+              console.log('you can fetch users data. User email is :' +sessionStorage.getItem('user'));
+              var email = sessionStorage.getItem('user');
+            }
+            return {
+                latestJobs: JSON.parse(latestJobs.response),
+                latestTenders:JSON.parse(latestTenders.response),
+                email:email,
+                name:name,
+                phone:phone,
+                location:location,
+                occupation:occupation,
+                numberOfJobs:numberOfJobs,
+                numberOfTenders:numberOfTenders,
+                favJobs:numberOfFavJobs,
+                favTenders:numberOfFavTenders,
+                allJobs:numberOfAllJobs,
+                allTenders:numberOfAllTenders
+            }
+        },
+        on: {
+            pageInit: function(e, page) {
+                console.log('');
+            }
+        }
+    }
+    </script>
+  
