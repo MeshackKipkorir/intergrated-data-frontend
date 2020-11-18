@@ -734,6 +734,7 @@ html.with-panel .framework7-root > .view .tab {
 
 .content-item {
     position: relative;
+    margin-bottom: 17px;
 }
 
 .content-item .text-desc {
