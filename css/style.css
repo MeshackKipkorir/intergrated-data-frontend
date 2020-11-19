@@ -1415,6 +1415,22 @@ html.with-panel .framework7-root > .view .tab {
     font-size: 18px;
 }
 
+.blog-category{
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px 4px;
+    background-color:#00acee;
+    position: relative;
+}
+.category-text{
+    font-family: inherit;
+    color:white;
+    margin:10px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
 /* notifications */
 .notifi-wrap .image {
     position: relative;
@@ -1735,6 +1751,7 @@ html.with-panel .framework7-root > .view .tab {
    .news-single{
     margin-left: 300px;
     margin-right: 300px;
+    background-color: #fff;
 }
 
  .timeline-horizontal.col-20 .timeline-item {
@@ -1798,4 +1815,24 @@ html.with-panel .framework7-root > .view .tab {
     text-transform: capitalize;
     font-weight: 600;
     line-height: 14px;
+}
+
+.news-single{
+    background: white;
+}
+
+.news-title{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-family: inherit;
+    line-height: 25px;
+}
+
+.blog-description{
+    font-family: inherit;
+}
+
+.blog-description p{
+    color: black;
+    line-height: 20px;
 }
