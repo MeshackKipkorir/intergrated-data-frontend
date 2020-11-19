@@ -161,13 +161,13 @@
                                     </div>
                                 </a>
                                 <a href="/news-single/">
-                                    <img class="full-width radius-top-only" src="/images/ministries/download.png" alt="">
+                                    <!-- <img class="full-width radius-top-only" src="/images/ministries/download.png" alt=""> -->
+                                    <img class="full-width radius-top-only" src="{{this.image_link}}" alt="" height="130px">
                                     <div class="text-desc">
-                                        <p class="price-item">{{this.title}}</p>
+                                        <p class="title-item article-title">{{this.title}}</p>
                                         <p class="location-item">
-                                            <ion-icon name="map-outline"></ion-icon>July 04 ,2020
+                                            <ion-icon name="map-outline"></ion-icon>{{this.created_at}}
                                         </p>
-                                        <p class="title-item">{{this.excerpt}}</p>
                                     </div>
                                 </a>
                             </div>

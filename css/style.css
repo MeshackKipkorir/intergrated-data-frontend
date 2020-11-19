@@ -402,7 +402,6 @@ img {
 
 .full-width {
     width: 100% !important;
-    padding-top: 12px;
 }
 
 /* page */
@@ -1793,4 +1792,10 @@ html.with-panel .framework7-root > .view .tab {
     white-space: inherit;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.article-title{
+    text-transform: capitalize;
+    font-weight: 600;
+    line-height: 14px;
 }
