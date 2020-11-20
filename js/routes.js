@@ -195,15 +195,18 @@ var routes = [{
         }
       },
 
+      //counties single route
       {
-        path: '/news-single/:id',
+        path: '/news-single/:id/:category',
         async: function (routeTo, routeFrom, resolve, reject) {
           // Requested route
           console.log(routeTo);
           var county_id = routeTo.params.id;
+          var category = routeTo.params.category;
           // Get external data and return template7 template
           this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleCounty/${county_id}`, function (data) {
               console.log(data)
+              console.log(category)
             resolve(
               // How and what to load: template
               {
@@ -213,6 +216,35 @@ var routes = [{
               {
                 context: {
                   article: data,
+                  articlecategory:category
+                },
+              }
+            );
+          });
+        }
+      },
+      // ministry single route
+      {
+        path: '/ministries-single/:id/:category',
+        async: function (routeTo, routeFrom, resolve, reject) {
+          // Requested route
+          console.log(routeTo);
+          var ministries_id = routeTo.params.id;
+          var category = routeTo.params.category;
+          // Get external data and return template7 template
+          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleMinistry/${ministries_id}`, function (data) {
+              console.log(data)
+              console.log(category)
+            resolve(
+              // How and what to load: template
+              {
+                componentUrl: './counties-single.html'
+              },
+              // Custom template context
+              {
+                context: {
+                  article: data,
+                  articlecategory:category
                 },
               }
             );
