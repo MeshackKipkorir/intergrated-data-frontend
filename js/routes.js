@@ -168,32 +168,31 @@ var routes = [{
       }
     },
 
-
-      {
-        path: '/single-job/:id/:image_url',
-        async: function (routeTo, routeFrom, resolve, reject) {
-          // Requested route
-          console.log(routeTo);
-          console.log(routeTo)
-          var job_id = routeTo.params.id;
-          // Get external data and return template7 template
-          this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleJob/${job_id}`, function (data) {
-              console.log(data)
-            resolve(
-              // How and what to load: template
-              {
-                componentUrl: './single-job.html'
+    {
+      path: '/single-job/:id/:image_url',
+      async: function (routeTo, routeFrom, resolve, reject) {
+        // Requested route
+        console.log(routeTo);
+        console.log(routeTo)
+        var job_id = routeTo.params.id;
+        // Get external data and return template7 template
+        this.app.request.json(`https://demos.mediapal.net/mygov-scraper/scraper/public/api/singleJob/${job_id}`, function (data) {
+            console.log(data)
+          resolve(
+            // How and what to load: template
+            {
+              componentUrl: './single-job.html'
+            },
+            // Custom template context
+            {
+              context: {
+                job: data,
               },
-              // Custom template context
-              {
-                context: {
-                  job: data,
-                },
-              }
-            );
-          });
-        }
-      },
+            }
+          );
+        });
+      }
+    },
 
       //counties single route
       {
@@ -224,6 +223,7 @@ var routes = [{
         }
       },
       // ministry single route
+      //counties-single file is just a template to be used for all articles, remember to change the name 
       {
         path: '/ministries-single/:id/:category',
         async: function (routeTo, routeFrom, resolve, reject) {
